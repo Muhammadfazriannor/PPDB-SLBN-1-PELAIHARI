@@ -15,7 +15,7 @@ Route::get('/PPDB', function () {
 });
 
 // Dashboard Admin
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::get('/admin', [AdminController::class, 'index'])->name('dashboard.dashboard');
 
 // Dashboard User
 Route::get('/user', [UserController::class, 'index'])->name('user.dashboard');
