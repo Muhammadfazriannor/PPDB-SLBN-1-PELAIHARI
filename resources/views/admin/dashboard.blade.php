@@ -147,7 +147,7 @@
         <div class="logo">Admin Panel</div>
         <a href="#" class="nav-link active" onclick="handleClick('Dashboard')">Dashboard</a>
         <a href="#" class="nav-link" onclick="handleClick('Tambah Pengumuman')">Tambah Pengumuman</a>
-        <a href="#" class="nav-link" onclick="handleClick('Data Pendaftar')">Data Pendaftar</a>
+        <a href="pendaftars" class="nav-link" onclick="handleClick('Data Pendaftar')">Data Pendaftar</a>
         <a href="#" class="nav-link" onclick="handleClick('Data Seleksi')">Data Seleksi</a>
         <a href="#" class="nav-link" onclick="handleClick('Pengaturan')">Pengaturan</a>
     </div>

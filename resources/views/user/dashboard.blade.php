@@ -142,7 +142,7 @@
         <nav>
             <a href="#">Home</a>
             <a href="#">About</a>
-            <a href="#">Pendaftar</a>
+            <a href="PPDB">Pendaftar</a>
             <a href="#">Contact</a>
             <a href="#">Login</a>
         </nav>
