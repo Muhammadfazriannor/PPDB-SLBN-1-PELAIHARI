@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Mdf\Mdf;
 
 class PendaftarController extends Controller
 {
@@ -15,6 +16,73 @@ class PendaftarController extends Controller
         $pendaftars = Pendaftar::latest()->paginate(10);
         return view('pendaftars.index', compact('pendaftars'));
     }
+
+    public function view_pdf(Pendaftar $pendaftar)
+    {
+        $mpdf = new \Mpdf\Mpdf();
+        
+        $html = "
+            <h1>Data Pendaftar</h1>
+            <p><strong>Nama Lengkap:</strong> {$pendaftar->nama_lengkap}</p>
+            <p><strong>Tanggal Lahir:</strong> {$pendaftar->tanggal_lahir}</p>
+            <p><strong>Jenis Kelamin:</strong> " . ($pendaftar->jenis_kelamin == 'L' ? 'Laki-laki' : 'Perempuan') . "</p>
+            <p><strong>Alamat:</strong> {$pendaftar->alamat}</p>
+            <p><strong>Email:</strong> {$pendaftar->email}</p>
+            <p><strong>No HP:</strong> {$pendaftar->no_hp}</p>
+        ";
+        
+        $mpdf->WriteHTML($html);
+        return $mpdf->Output('pendaftar_' . $pendaftar->id . '.pdf', 'I'); // Tampilkan langsung di browser
+    }
+
+    public function view_all_pdf()
+{
+    $pendaftars = Pendaftar::all(); // Mengambil semua data pendaftar
+
+    $mpdf = new \Mpdf\Mpdf();
+    $html = "
+        <h1>Data Semua Pendaftar</h1>
+        <table border='1' cellspacing='0' cellpadding='10' style='width:100%; border-collapse: collapse;'>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Lengkap</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Alamat</th>
+                    <th>Email</th>
+                    <th>No HP</th>
+                </tr>
+            </thead>
+            <tbody>
+    ";
+
+    $no = 1;
+    foreach ($pendaftars as $pendaftar) {
+        $jenis_kelamin = $pendaftar->jenis_kelamin == 'L' ? 'Laki-laki' : 'Perempuan';
+        $html .= "
+            <tr>
+                <td>{$no}</td>
+                <td>{$pendaftar->nama_lengkap}</td>
+                <td>{$pendaftar->tanggal_lahir}</td>
+                <td>{$jenis_kelamin}</td>
+                <td>{$pendaftar->alamat}</td>
+                <td>{$pendaftar->email}</td>
+                <td>{$pendaftar->no_hp}</td>
+            </tr>
+        ";
+        $no++;
+    }
+
+    $html .= "
+            </tbody>
+        </table>
+    ";
+
+    $mpdf->WriteHTML($html);
+    return $mpdf->Output('data_semua_pendaftar.pdf', 'I'); // Tampilkan langsung di browser
+}
+
 
     public function create(): View
     {

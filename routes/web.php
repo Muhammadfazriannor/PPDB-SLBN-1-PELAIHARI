@@ -7,6 +7,7 @@ use App\Http\Controllers\PendaftarController;
 use App\Http\Controllers\PPDBController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\SeleksiController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,24 +23,28 @@ Route::get('/admin', [AdminController::class, 'index'])->name('dashboard.dashboa
 Route::get('/user', [UserController::class, 'index'])->name('user.dashboard');
 
 Route::prefix('admin')->group(function () {
-    Route::get('/', [AdminController::class, 'index']);
-    Route::get('/pengumuman', [AdminController::class, 'pengumuman']);
-    Route::post('/pengumuman', [AdminController::class, 'storePengumuman']);
-    Route::get('/pendaftar', [AdminController::class, 'pendaftar']);
-    Route::get('/seleksi', [AdminController::class, 'seleksi']);
-    Route::get('/ppdb', [PPDBController::class, 'index'])->name('ppdb.index');  // Menampilkan form PPDB
-Route::post('/ppdb', [PPDBController::class, 'store'])->name('ppdb.store');
-Route::get('/dashboard', [berandaController::class, 'index'])->name('dashboard');
-
+    Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/pengumuman', [AdminController::class, 'pengumuman'])->name('admin.pengumuman');
+    Route::post('/pengumuman', [AdminController::class, 'storePengumuman'])->name('admin.storePengumuman');
+    Route::get('/pendaftar', [AdminController::class, 'pendaftar'])->name('admin.pendaftar');
+    Route::get('/pendaftar/view/pdf/{pendaftar}', [PendaftarController::class, 'view_pdf'])->name('pendaftars.pdf');
+    Route::get('/pendaftars/view-all/pdf', [PendaftarController::class, 'view_all_pdf'])->name('pendaftars.viewAllPdf');
+    Route::get('/seleksi', [AdminController::class, 'seleksi'])->name('admin.seleksi');
+    Route::get('/ppdb', [PPDBController::class, 'index'])->name('admin.ppdb.index');  // Menampilkan form PPDB
+    Route::post('/ppdb', [PPDBController::class, 'store'])->name('admin.ppdb.store');
+    Route::get('/dashboard', [berandaController::class, 'index'])->name('dashboard');
 });
 
-Route::resource('/pendaftars', \App\Http\Controllers\PendaftarController::class);
-Route::resource('/ppdb', \App\Http\Controllers\PPDBController::class);
+Route::resource('/pendaftars', PendaftarController::class);
+Route::resource('/ppdb', PPDBController::class);
 Route::resource('/pengumumen', PengumumanController::class);
 
+// Rute tambahan untuk Pendaftar: View PDF
+Route::get('/pendaftars/{pendaftar}/pdf', [PendaftarController::class, 'view_pdf'])->name('pendaftars.pdf');
+
 // Rute untuk seleksi
-Route::get('/seleksi', [SeleksiController::class, 'index'])->name('seleksi.index');
-Route::get('/seleksi/proses', [SeleksiController::class, 'prosesSeleksi'])->name('seleksi.proses');
-Route::get('/seleksi/update-status/{seleksi}/{status}', [SeleksiController::class, 'updateStatus'])->name('seleksi.updateStatus');
-
-
+Route::prefix('seleksi')->group(function () {
+    Route::get('/', [SeleksiController::class, 'index'])->name('seleksi.index');
+    Route::get('/proses', [SeleksiController::class, 'prosesSeleksi'])->name('seleksi.proses');
+    Route::get('/update-status/{seleksi}/{status}', [SeleksiController::class, 'updateStatus'])->name('seleksi.updateStatus');
+});

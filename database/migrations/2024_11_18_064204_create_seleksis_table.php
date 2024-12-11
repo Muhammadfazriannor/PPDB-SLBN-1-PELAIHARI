@@ -5,15 +5,18 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateSeleksisTable extends Migration
 {
-    public function up(): void
+    public function up()
     {
-        Schema::create('seleksis', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('pendaftar_id')->constrained('pendaftars')->onDelete('cascade'); // Relasi ke pendaftar
-            $table->string('status')->default('lihat'); // Default status
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('seleksis')) {
+            Schema::create('seleksis', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('pendaftar_id')->constrained()->onDelete('cascade');
+                $table->string('status')->default('lihat');
+                $table->timestamps();
+            });
+        }
     }
+    
 
     public function down(): void
     {

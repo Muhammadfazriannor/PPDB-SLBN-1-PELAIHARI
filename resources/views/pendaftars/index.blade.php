@@ -14,7 +14,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
+            <a class="navbar-brand ps-3" href="index.html">Dashboard Admin</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -79,6 +79,9 @@
                                         <!-- Tombol untuk menambah pendaftar -->
                                         <a href="{{ route('pendaftars.create') }}" class="btn btn-md btn-success mb-3">TAMBAH PENDAFTAR</a>
 
+                                        <a href="{{ route('pendaftars.viewAllPdf') }}" class="btn btn-md btn-success mb-3">CETAK DATA</a>
+
+
                                         <!-- Menampilkan pesan sukses atau error -->
                                         @if(session('success') || session('error'))
                                             <script>
@@ -136,6 +139,8 @@
                                                                 </form>
                                                                 <!-- Tombol Lihat -->
                                                                 <a href="{{ route('pendaftars.show', $pendaftar) }}" class="btn btn-sm btn-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat Detail">LIHAT</a>
+                                                                <!-- Tombol Lihat PDF -->
+                                                                <a href="{{ route('pendaftars.pdf', $pendaftar) }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat PDF">LIHAT PDF</a>
                                                             </div>
                                                         </td>
                                                     </tr>
