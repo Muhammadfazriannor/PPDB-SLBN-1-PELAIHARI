@@ -5,7 +5,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PendaftarController;
 use App\Http\Controllers\PPDBController;
-
+use App\Http\Controllers\PengumumanController;
+use App\Http\Controllers\SeleksiController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -34,5 +35,11 @@ Route::get('/dashboard', [berandaController::class, 'index'])->name('dashboard')
 
 Route::resource('/pendaftars', \App\Http\Controllers\PendaftarController::class);
 Route::resource('/ppdb', \App\Http\Controllers\PPDBController::class);
+Route::resource('/pengumumen', PengumumanController::class);
+
+// Rute untuk seleksi
+Route::get('/seleksi', [SeleksiController::class, 'index'])->name('seleksi.index');
+Route::get('/seleksi/proses', [SeleksiController::class, 'prosesSeleksi'])->name('seleksi.proses');
+Route::get('/seleksi/update-status/{seleksi}/{status}', [SeleksiController::class, 'updateStatus'])->name('seleksi.updateStatus');
 
 
