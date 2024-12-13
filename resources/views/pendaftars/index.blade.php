@@ -75,7 +75,7 @@
                                         <h2 class="mb-4">Data Pendaftaran</h2>
 
                                         <!-- Tombol kembali ke dashboard -->
-                                        <a href="{{ route('dashboard') }}" class="btn btn-md btn-secondary mb-3">KEMBALI KE DASHBOARD</a>
+                                       
                                         <!-- Tombol untuk menambah pendaftar -->
                                         <a href="{{ route('pendaftars.create') }}" class="btn btn-md btn-success mb-3">TAMBAH PENDAFTAR</a>
 

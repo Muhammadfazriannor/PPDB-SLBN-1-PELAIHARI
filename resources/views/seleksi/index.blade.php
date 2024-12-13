@@ -86,8 +86,7 @@
                             <div class="col-md-12">
                                 <div class="card border-0 shadow-sm rounded">
                                     <div class="card-body">
-                                        <!-- Tombol Kembali ke Dashboard -->
-                                        <a href="{{ route('dashboard') }}" class="btn btn-md btn-secondary mb-3">KEMBALI KE DASHBOARD</a>
+            
                                         <!-- Tabel Data Seleksi -->
                                         <h3 class="mb-4">Hasil Seleksi</h3>
                                         @if (session('success'))

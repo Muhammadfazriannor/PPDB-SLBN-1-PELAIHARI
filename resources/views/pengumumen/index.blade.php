@@ -76,8 +76,7 @@
                                         <!-- Tombol Kembali ke Dashboard dan Tambah Pengumuman (placed below the heading) -->
                                         <div class="d-flex justify-content-start mb-3">
                                             <!-- Tombol Kembali ke Dashboard -->
-                                            <a href="{{ route('dashboard') }}" class="btn btn-md btn-secondary me-3">KEMBALI KE DASHBOARD</a>
-
+                                        
                                             <!-- Tombol untuk menambah pengumuman -->
                                             <a href="{{ route('pengumumen.create') }}" class="btn btn-md btn-success">TAMBAH PENGUMUMAN</a>
                                         </div>
