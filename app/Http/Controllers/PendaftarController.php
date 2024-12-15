@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pendaftar;
+use App\Models\Seleksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
@@ -114,6 +115,12 @@ class PendaftarController extends Controller
         }
 
         $pendaftar->save();
+
+        // Tambahkan data ke tabel Seleksi
+        Seleksi::create([
+            'pendaftar_id' => $pendaftar->id,
+            'status' => 'lihat', // Status default, sesuaikan dengan kebutuhan
+        ]);
 
         return redirect()->route('pendaftars.index')->with('success', 'Data Berhasil Disimpan!');
     }
