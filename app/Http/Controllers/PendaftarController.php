@@ -20,7 +20,14 @@ class PendaftarController extends Controller
 
     public function view_pdf(Pendaftar $pendaftar)
     {
-        $dompdf = new Dompdf();
+        // Konfigurasi opsi Dompdf
+        $options = new Options();
+        $options->set('defaultFont', 'Arial'); // Ganti dengan font yang Anda inginkan
+        $options->setIsHtml5ParserEnabled(true);
+        $options->setIsRemoteEnabled(true); // Jika memuat sumber eksternal seperti CSS
+    
+        $dompdf = new Dompdf($options);
+    
         $html = "
             <h1>Data Pendaftar</h1>
             <p><strong>Nama Lengkap:</strong> {$pendaftar->nama_lengkap}</p>
@@ -30,13 +37,15 @@ class PendaftarController extends Controller
             <p><strong>Email:</strong> {$pendaftar->email}</p>
             <p><strong>No HP:</strong> {$pendaftar->no_hp}</p>
         ";
-
+    
         $dompdf->loadHtml($html);
         $dompdf->setPaper('A4', 'portrait');
         $dompdf->render();
-
-        return $dompdf->stream('pendaftar_' . $pendaftar->id . '.pdf'); // Tampilkan langsung di browser
+    
+        // Tampilkan langsung di browser
+        return $dompdf->stream('pendaftar_' . $pendaftar->id . '.pdf');
     }
+    
 
     public function view_all_pdf()
     {

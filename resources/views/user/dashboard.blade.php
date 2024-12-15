@@ -7,188 +7,244 @@
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #1a1a2e, #16213e);
-            color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            scroll-behavior: smooth;
         }
 
-        .header {
+        header {
+            background: url('images/background.jpg') no-repeat center center / cover;
+            color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
-            background: linear-gradient(90deg, #0f3460, #16213e);
-            color: white;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            padding: 20px 50px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            transition: all 0.3s ease;
         }
 
-        .header .logo {
-            font-size: 1.8em;
-            font-weight: bold;
+        header.scrolled {
+            background-color: rgba(30, 58, 95, 0.95);
+            color: #fff;
         }
 
-        .header nav a {
-            color: white;
-            margin: 0 15px;
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo span {
+            font-size: 2em;
+            font-weight: 300;
+            color: #1e3a5f; /* Blue color */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            transition: color 0.3s;
+        }
+
+        header.scrolled .logo span {
+            color: white; /* White color on scroll */
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        nav a {
             text-decoration: none;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: background 0.3s;
+            color: #1e3a5f;
+            font-size: 1em;
+            font-weight: 300;
+            font-family: 'Arial', sans-serif;
+            transition: color 0.3s;
         }
 
-        .header nav a:hover {
-            background: rgba(255, 255, 255, 0.2);
+        header.scrolled nav a {
+            color: white;
         }
 
         .hero {
-            text-align: center;
-            padding: 100px 20px;
-            height: 100vh;
-            background: linear-gradient(to bottom, rgba(21, 21, 48, 0.8), rgba(10, 10, 23, 0.8)), 
-                url('images/halaman.jpeg') no-repeat center center/cover;
-            color: white;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: space-between;
+            background: url('images/hero-bg.jpg') no-repeat center center / cover;
+            padding: 50px;
+            height: 90vh;
+            color: white;
         }
 
-        .hero h1 {
-            font-size: 4em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        .hero-content h1 {
+            font-size: 3em;
+            color: #1e3a5f;
+            animation: fadeIn 1.5s ease-in;
         }
 
-        .hero p {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-        }
-
-        .hero button {
-            padding: 12px 25px;
+        .hero-content p {
             font-size: 1.2em;
-            margin: 0 15px;
-            background: linear-gradient(to right, #0093e9, #80d0c7);
+            margin: 20px 0;
+        }
+
+        .hero-content button {
+            background-color: #1e3a5f;
             color: white;
             border: none;
+            padding: 15px 30px;
+            font-size: 1em;
             border-radius: 5px;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 147, 233, 0.5);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: background-color 0.3s;
         }
 
-        .hero button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 147, 233, 0.7);
+        .hero-content button:hover {
+            background-color: #14304b;
         }
 
-        .about {
-            text-align: center;
-            padding: 100px 20px;
-            height: 100vh;
-            background: linear-gradient(to bottom, #1e1e2f, #2b2b3e);
-            color: #d1d1d1;
-        }
-
-        .about h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        .about img {
-            max-width: 100%;
+        .principal-greeting {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 50px;
+            background-color: #fff;
             border-radius: 10px;
-            margin: 20px 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            margin: 50px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .about p {
+        .principal-greeting img {
+            width: 250px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .principal-text {
+            max-width: 600px;
+        }
+
+        .principal-text h2 {
+            font-size: 2em;
+            color: #1e3a5f;
+            margin-bottom: 20px;
+            animation: slideInRight 1s ease-out;
+        }
+
+        .principal-text p {
             font-size: 1.2em;
-            max-width: 800px;
-            margin: 0 auto;
+            color: #555;
             line-height: 1.8;
         }
 
-        .gallery {
-            padding: 100px 20px;
-            height: 100vh;
-            background: linear-gradient(to bottom, #0f3460, #1c1c2d);
-            text-align: center;
-        }
-
-        .gallery h2 {
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .gallery img {
-            width: 200px;
-            height: auto;
-            margin: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
-        }
-
         footer {
+            background-color: #333;
+            color: white;
             text-align: center;
             padding: 20px;
-            background: linear-gradient(90deg, #0f3460, #1a1a2e);
-            color: white;
+            margin-top: 20px;
         }
 
         footer p {
             margin: 0;
-            font-size: 0.9em;
         }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="logo">SLBN 1 Pelaihari</div>
+    <header>
+        <div class="logo">
+            <img src="images/SLBN.png" alt="Logo SLBN 1 Pelaihari">
+            <span>SLBN 1 Pelaihari</span>
+        </div>
         <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="PPDB">Pendaftar</a>
-            <a href="#">Contact</a>
-            <a href="#">Login</a>
+            <a href="#">Beranda</a>
+            <a href="#">Tentang Kami</a>
+            <a href="PPDB">PPDB</a>
+            <a href="#">BKK</a>
+            <a href="#">Alumni</a>
+            <a href="#">Hubungi Kami</a>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>Selamat Datang di SLBN 1 Pelaihari</h1>
-        <p>Memberdayakan pendidikan inklusif dengan perhatian dan komitmen.</p>
-        <button>Masuk</button>
-        
+        <div class="hero-content">
+            <h1>The Innovative School</h1>
+            <button>DAFTAR SEKARANG</button>
+        </div>
     </section>
 
-    <section class="about">
-        <h2>About Us</h2>
-        <img src="images/logo.jpg" alt="School Image" style="width: 100px; height: auto;">
+    <section class="principal-greeting">
+        <img src="images/KEPSEK.png" alt="Kepala Sekolah">
+        <div class="principal-text">
+            <h2>Sambutan Kepala Sekolah</h2>
+            <p>Assalamu'alaikum warahmatullohi wabarakatuh. Salam Sejahtera bagi kita semua, Salom, Om Swastiastu, Namo Buddhaya, Salam Kebajikan. 
 
-        <p>
-        SLBN 1 Pelaihari adalah sebuah sekolah yang didedikasikan untuk menyediakan pendidikan berkualitas bagi siswa berkebutuhan khusus. Misi kami adalah menciptakan lingkungan belajar yang inklusif dan mendukung yang dapat mengembangkan potensi setiap anak.
-        </p>
-    </section>
+Puji syukur kepada Allah SWT, Tuhan Yang Maha Esa yang telah memberikan rahmat dan anugerahNya sehingga website SLBN 1 Pelaihari dapat diselesaikan dan terbit. Salah satu tujuan dari website ini adalah untuk menjawab akan kebutuhan informasi dengan memanfaatkan sarana teknologi informasi yang ada. Kami sadar sepenuhnya dalam rangka memajukan pendidikan di era globalisasi Teknologi Informasi yang begitu pesat, sangat diperlukan sarana prasarana yang kondusif, kebutuhan informasi siswa, guru, orangtua maupun masyarakat, sehingga kami berusaha mewujudkan hal tersebut semaksimal mungkin. Semoga dengan adanya website ini dapat membantu dan bermanfaat, terutama informasi yang berhubungan dengan pendidikan, ilmu pengetahuan dan informasi seputar SLBN 1 Pelaihari. 
 
-    <section class="gallery">
-        <h2>Berita</h2>
-        <img src="images/y.jpeg" alt="Gallery Image 1">
-        <img src="images/p.jpeg" alt="Gallery Image 2">
-        <img src="images/kegiatan.jpeg" alt="Gallery Image 3">
-        <img src="images/yy.jpeg" alt="Gallery Image 1">
-        <img src="images/s.jpeg" alt="Gallery Image 2">
+SLBN 1 Pelaihari hadir sebagai sekolah Pusat Keunggulan yang akan selalu memberikan berbagai informasi tentang sekolah, PPDB, prestasi dan karya siswa, guru, perpustakaan, kurikulum dan lain-lain. Sehingga, orang tua siswa dan masyarakat dapat memperoleh informasi serta akses secara terbuka cepat dan akurat.
 
+Akhirnya kami mengharapkan masukan dari berbagai pihak untuk website ini agar kami terus belajar dan meng-update diri, sehingga tampilan, isi dan mutu website akan terus berkembang dan lebih baik nantinya. Terima kasih atas kerjasamanya, maju terus untuk mencapai SLBN 1 Pelaihari yang INOVATIF. Demikian dan terima kasih.
+
+Wassalamu'alaikum wr.wb.
+
+Kepala Sekolah</p>
+        </div>
     </section>
 
     <footer>
         <p>&copy; 2024 SLBN 1 Pelaihari. All rights reserved.</p>
     </footer>
+
+    <script>
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
