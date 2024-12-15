@@ -1,5 +1,3 @@
-<!-- resources/views/user/dashboard.blade.php -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +6,7 @@
     <title>SLBN 1 Pelaihari</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-    
-    body {
+        body {
             margin: 0;
             font-family: Arial, sans-serif;
             background: linear-gradient(to bottom, #1a1a2e, #16213e);
@@ -44,87 +41,73 @@
             background: rgba(255, 255, 255, 0.2);
         }
 
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(to bottom, rgba(21, 21, 48, 0.9), rgba(10, 10, 23, 0.9)), 
-                url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
-            color: white;
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #2b2b3e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .hero h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #ddd;
         }
 
-        .hero p {
-            font-size: 1.3em;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        .form-control {
+            background-color: #1a1a2e;
+            color: #f4f4f4 !important; /* Pastikan teks berwarna putih */
+            border: 1px solid #555;
         }
 
-        .hero button {
-            padding: 12px 25px;
-            font-size: 1em;
-            margin: 0 15px;
-            background: linear-gradient(to right, #0093e9, #80d0c7);
-            color: white;
+        .form-control:focus {
+            background-color: #1a1a2e;
+            border-color: #0093e9;
+            box-shadow: 0 0 5px rgba(0, 147, 233, 0.8);
+        }
+
+        /* Hanya untuk textarea agar teks tetap putih */
+        textarea.form-control {
+            color: #f4f4f4 !important;
+            background-color: #1a1a2e;
+            border: 1px solid #555;
+        }
+
+        textarea.form-control:focus {
+            color: #f4f4f4 !important;
+            background-color: #1a1a2e;
+            border-color: #0093e9;
+            box-shadow: 0 0 5px rgba(0, 147, 233, 0.8);
+        }
+
+        .btn {
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 147, 233, 0.5);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: background 0.3s, transform 0.3s;
         }
 
-        .hero button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 147, 233, 0.7);
-        }
-
-        .about {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(to bottom, #1e1e2f, #2b2b3e);
-            color: #d1d1d1;
-        }
-
-        .about h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        .about p {
-            font-size: 1.2em;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        .categories {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 40px 0;
-            padding: 20px;
-            background: linear-gradient(to bottom, #0f3460, #1c1c2d);
-        }
-
-        .categories .category {
-            background: linear-gradient(to bottom, #16213e, #0f3460);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
+        .btn-primary {
+            background: linear-gradient(to right, #0093e9, #80d0c7);
             color: white;
-            font-size: 1.2em;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
         }
 
-        .categories .category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 147, 233, 0.7);
+        }
+
+        .btn-warning {
+            background: linear-gradient(to right, #ffc107, #ff8800);
+            color: white;
+        }
+
+        .btn-warning:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.7);
         }
 
         footer {
@@ -133,16 +116,9 @@
             background: linear-gradient(90deg, #0f3460, #1a1a2e);
             color: white;
         }
-
-        footer p {
-            margin: 0;
-            font-size: 0.9em;
-        }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <!-- Navbar -->
     <header class="header">
         <div class="logo">SLBN 1 Pelaihari</div>
         <nav>
@@ -154,27 +130,13 @@
         </nav>
     </header>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-    <!-- Konten -->
-    
-    <!-- Script -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <div class="container my-4">
-        
-
-        <!-- Menampilkan pesan sukses -->
+    <div class="container">
         @if(session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
 
-        <!-- Form Pendaftaran -->
         <form action="{{ route('ppdb.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group mb-3">
@@ -211,7 +173,7 @@
             </div>
 
             <div class="form-group mb-3">
-                <label class="font-weight-bold">Tambahkan foto berkas ABK</label>
+                <label>Tambahkan foto berkas ABK:</label>
                 <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto">
                 @error('foto')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -224,7 +186,6 @@
             </div>
         </form>
 
-        <!-- Menampilkan error -->
         @if($errors->any())
             <div class="alert alert-danger mt-3">
                 <ul>
@@ -235,16 +196,14 @@
             </div>
         @endif
     </div>
-    
+
     <footer>
         <p>&copy; 2024 SLBN 1 Pelaihari. All rights reserved.</p>
     </footer>
 
-    <!-- Script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        // SweetAlert pesan
         @if(session('success'))
             Swal.fire({
                 icon: "success",
