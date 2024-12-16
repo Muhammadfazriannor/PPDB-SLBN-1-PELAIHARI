@@ -14,7 +14,7 @@ Route::get('/', function () {
 });
 
 Route::get('/PPDB', function () {
-    return view('ppdb.index');
+    return view('PPDB.index');
 });
 
 // Dashboard Admin
