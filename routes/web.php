@@ -7,6 +7,7 @@ use App\Http\Controllers\PendaftarController;
 use App\Http\Controllers\PPDBController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\SeleksiController;
+use App\Http\Controllers\WhatsAppController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -41,6 +42,10 @@ Route::resource('/pengumumen', PengumumanController::class);
 
 // Rute tambahan untuk Pendaftar: View PDF
 Route::get('/pendaftars/{pendaftar}/pdf', [PendaftarController::class, 'view_pdf'])->name('pendaftars.pdf');
+
+// Rute untuk mengirim pesan WhatsApp
+Route::get('/kirimpesan', [WhatsAppController::class, 'index'])->name('send-message-form');
+Route::post('/kirimpesan', [WhatsAppController::class, 'sendMessage'])->name('send-message');
 
 // Rute untuk seleksi
 Route::prefix('seleksi')->group(function () {
