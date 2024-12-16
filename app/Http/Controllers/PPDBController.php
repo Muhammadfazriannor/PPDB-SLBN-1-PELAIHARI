@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pendaftar;
-use Carbon\Carbon; // Tambahkan Carbon untuk manipulasi tanggal
+use App\Models\Seleksi; // Tambahkan model Seleksi
+use Carbon\Carbon;
 
 class PPDBController extends Controller
 {
@@ -20,16 +21,13 @@ class PPDBController extends Controller
         // Validasi input
         $request->validate([
             'nama_lengkap' => 'required|string|max:255',
-            'tanggal_lahir' => 'required|date', // Gunakan validasi date untuk format default
+            'tanggal_lahir' => 'required|date',
             'jenis_kelamin' => 'required|string|max:10',
             'alamat' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'no_hp' => 'required|string|max:15',
             'foto' => 'required|image|mimes:jpeg,jpg,png|max:2048',
         ]);
-
-        // Konversi tanggal hanya jika format tidak sesuai MySQL
-        $tanggalLahir = $request->input('tanggal_lahir'); // Format input dari browser (Y-m-d)
 
         // Upload file foto
         $fotoPath = null;
@@ -39,9 +37,9 @@ class PPDBController extends Controller
         }
 
         // Simpan data ke dalam tabel pendaftar
-        Pendaftar::create([
+        $pendaftar = Pendaftar::create([
             'nama_lengkap' => $request->input('nama_lengkap'),
-            'tanggal_lahir' => $tanggalLahir, // Format sudah sesuai dengan MySQL
+            'tanggal_lahir' => $request->input('tanggal_lahir'),
             'jenis_kelamin' => $request->input('jenis_kelamin'),
             'alamat' => $request->input('alamat'),
             'email' => $request->input('email'),
@@ -49,6 +47,12 @@ class PPDBController extends Controller
             'foto' => $fotoPath,
         ]);
 
-        return redirect()->route('ppdb.index')->with('success', 'Pendaftaran berhasil disimpan.');
+        // Simpan data ke dalam tabel seleksi
+        Seleksi::create([
+            'pendaftar_id' => $pendaftar->id, // ID pendaftar sebagai foreign key
+            'status_seleksi' => 'Belum Diproses', // Default status seleksi
+        ]);
+
+        return redirect()->route('ppdb.index')->with('success', 'Pendaftaran berhasil disimpan dan masuk ke proses seleksi.');
     }
 }

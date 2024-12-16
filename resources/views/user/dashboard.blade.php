@@ -210,7 +210,12 @@
     <section class="hero">
         <div class="hero-content">
             <h1>The Innovative School</h1>
-            <button>DAFTAR SEKARANG</button>
+    <button onclick="location.href='{{ route('ppdb.index') }}'" 
+        class="btn btn-primary btn-lg" 
+        style="padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+        DAFTAR SEKARANG
+    </button>
+
         </div>
     </section>
 
