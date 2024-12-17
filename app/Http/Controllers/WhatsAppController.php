@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Services\FoonteService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+
 
 class WhatsAppController extends Controller
 {
@@ -14,11 +16,13 @@ class WhatsAppController extends Controller
         $this->foonteService = $foonteService;
     }
 
+    // Tampilkan form kirim pesan
     public function index()
     {
         return view('kirimpesan');
     }
 
+    // Kirim pesan ke WhatsApp
     public function sendMessage(Request $request)
     {
         $request->validate([
@@ -27,11 +31,11 @@ class WhatsAppController extends Controller
         ]);
 
         try {
-            $result = $this->foonteService->sendMessage($request->phone, $request->message);
+            $this->foonteService->sendMessage($request->phone, $request->message);
 
             return redirect()->back()->with('success', 'Pesan berhasil dikirim!');
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', $e->getMessage());
+            return redirect()->back()->with('error', 'Gagal mengirim pesan: ' . $e->getMessage());
         }
     }
 }
