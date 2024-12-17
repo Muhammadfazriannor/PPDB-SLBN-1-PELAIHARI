@@ -20,8 +20,12 @@ Route::get('/PPDB', function () {
 // Dashboard Admin
 Route::get('/admin', [AdminController::class, 'index'])->name('dashboard.dashboard');
 
-// Dashboard User
+
+// Rute untuk Dashboard User
 Route::get('/user', [UserController::class, 'index'])->name('user.dashboard');
+
+// Rute untuk Layanan
+Route::get('/tentang', [UserController::class, 'tentang'])->name('user.tentang');
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
