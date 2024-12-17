@@ -33,7 +33,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/seleksi', [AdminController::class, 'seleksi'])->name('admin.seleksi');
     Route::get('/ppdb', [PPDBController::class, 'index'])->name('admin.ppdb.index');  // Menampilkan form PPDB
     Route::post('/ppdb', [PPDBController::class, 'store'])->name('admin.ppdb.store');
-    Route::get('/dashboard', [berandaController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
 });
 
 Route::resource('/pendaftars', PendaftarController::class);
