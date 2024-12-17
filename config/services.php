@@ -36,9 +36,9 @@ return [
     ],
 
     // Tambahkan konfigurasi Foonte
-    'foonte' => [
-        'base_url' => env('FOONTE_BASE_URL', 'https://api.foonte.com'), // URL default
-        'api_key' => env('FOONTE_API_KEY'), // Kunci API dari Foonte
-    ],
-
-];
+     'foonte' => [
+    'base_url' => env('FOONTE_BASE_URL'),
+    'api_key' => env('FOONTE_API_KEY'),
+],
+    ];
+    
