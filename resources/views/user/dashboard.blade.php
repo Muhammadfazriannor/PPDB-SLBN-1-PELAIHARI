@@ -201,8 +201,6 @@
             <a href="#">Beranda</a>
             <a href="#">Tentang Kami</a>
             <a href="PPDB">PPDB</a>
-            <a href="#">BKK</a>
-            <a href="#">Alumni</a>
             <a href="#">Hubungi Kami</a>
         </nav>
     </header>
