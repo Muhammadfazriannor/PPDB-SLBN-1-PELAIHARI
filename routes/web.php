@@ -8,6 +8,7 @@ use App\Http\Controllers\PPDBController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\SeleksiController;
 use App\Http\Controllers\WhatsAppController;
+use Illuminate\Support\Facades\Http;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,8 +21,12 @@ Route::get('/PPDB', function () {
 // Dashboard Admin
 Route::get('/admin', [AdminController::class, 'index'])->name('dashboard.dashboard');
 
-// Dashboard User
+
+// Rute untuk Dashboard User
 Route::get('/user', [UserController::class, 'index'])->name('user.dashboard');
+
+// Rute untuk Layanan
+Route::get('/tentang', [UserController::class, 'tentang'])->name('user.tentang');
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
@@ -33,7 +38,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/seleksi', [AdminController::class, 'seleksi'])->name('admin.seleksi');
     Route::get('/ppdb', [PPDBController::class, 'index'])->name('admin.ppdb.index');  // Menampilkan form PPDB
     Route::post('/ppdb', [PPDBController::class, 'store'])->name('admin.ppdb.store');
-    Route::get('/dashboard', [berandaController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
 });
 
 Route::resource('/pendaftars', PendaftarController::class);
@@ -44,7 +49,7 @@ Route::resource('/pengumumen', PengumumanController::class);
 Route::get('/pendaftars/{pendaftar}/pdf', [PendaftarController::class, 'view_pdf'])->name('pendaftars.pdf');
 
 // Rute untuk mengirim pesan WhatsApp
-Route::get('/kirimpesan', [WhatsAppController::class, 'index'])->name('send-message-form');
+Route::get('/kirimpesan', [WhatsAppController::class, 'index']);
 Route::post('/kirimpesan', [WhatsAppController::class, 'sendMessage'])->name('send-message');
 
 // Rute untuk seleksi

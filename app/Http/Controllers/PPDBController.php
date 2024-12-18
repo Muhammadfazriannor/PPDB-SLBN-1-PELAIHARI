@@ -12,7 +12,7 @@ class PPDBController extends Controller
     // Menampilkan form PPDB
     public function index()
     {
-        return view('ppdb.index');
+        return view('PPDB.index');
     }
 
     // Menyimpan data PPDB ke database
