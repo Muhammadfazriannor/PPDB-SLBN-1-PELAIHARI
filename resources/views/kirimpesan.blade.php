@@ -68,31 +68,60 @@
             background-color: #dc3545;
             color: white;
         }
+        .alert-validation {
+            background-color: #ffc107;
+            color: black;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Kirim Pesan WhatsApp</h1>
 
+        <!-- Tampilkan pesan sukses -->
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
 
+        <!-- Tampilkan pesan error -->
         @if (session('error'))
             <div class="alert alert-error">
                 {{ session('error') }}
             </div>
         @endif
 
+        <!-- Tampilkan validasi error -->
+        @if ($errors->any())
+            <div class="alert alert-validation">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <!-- Form untuk mengirim pesan -->
         <form action="{{ route('send-message') }}" method="POST">
             @csrf
             <label for="phone">Nomor WhatsApp (dengan kode negara):</label>
-            <input type="text" id="phone" name="phone" placeholder="Contoh: 628123456789" required>
+            <input 
+                type="text" 
+                id="phone" 
+                name="phone" 
+                placeholder="Contoh: 628123456789" 
+                value="{{ old('phone') }}" 
+                required
+            >
 
             <label for="message">Pesan:</label>
-            <textarea id="message" name="message" placeholder="Tulis pesan Anda..." required></textarea>
+            <textarea 
+                id="message" 
+                name="message" 
+                placeholder="Tulis pesan Anda..." 
+                required>{{ old('message') }}</textarea>
 
             <button type="submit">Kirim Pesan</button>
         </form>
