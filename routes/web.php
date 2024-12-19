@@ -49,8 +49,31 @@ Route::resource('/pengumumen', PengumumanController::class);
 Route::get('/pendaftars/{pendaftar}/pdf', [PendaftarController::class, 'view_pdf'])->name('pendaftars.pdf');
 
 // Rute untuk mengirim pesan WhatsApp
-Route::get('/kirimpesan', [WhatsAppController::class, 'index']);
-Route::post('/kirimpesan', [WhatsAppController::class, 'sendMessage'])->name('send-message');
+Route::get('/kirimpesan', function () {
+    return view('kirimpesan'); // Tampilkan form
+});
+
+Route::post('/kirimpesan', function (\Illuminate\Http\Request $request) {
+    $request->validate([
+        'phone' => 'required|regex:/^628[0-9]{9,}$/',
+        'message' => 'required|string|max:500',
+    ]);
+
+    $response = Http::withHeaders([
+        'Authorization' => 'hwKMSu41BfB72yP9DTAL',
+    ])->post('https://api.fonnte.com/send', [
+        'target' => $request->phone,
+        'message' => $request->message,
+    ]);
+
+    $result = json_decode($response, true);
+
+    if ($response->successful()) {
+        return redirect()->back()->with('success', 'Pesan berhasil dikirim!');
+    } else {
+        return redirect()->back()->with('error', 'Gagal mengirim pesan: ' . ($result['message'] ?? 'Kesalahan tidak diketahui'));
+    }
+})->name('send-message'); // Nama rute diubah menjadi 'send-message'
 
 // Rute untuk seleksi
 Route::prefix('seleksi')->group(function () {
