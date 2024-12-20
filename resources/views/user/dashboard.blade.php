@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -244,8 +245,8 @@
             <span>SLBN 1 Pelaihari</span>
         </div>
         <nav>
-            <a href="#">Beranda</a>
-            <a href="#">Tentang Kami</a>
+            <a href="user">Beranda</a>
+            <a href="tentang">Tentang Kami</a>
             <a href="PPDB">PPDB</a>
             <a href="#">Hubungi Kami</a>
         </nav>
