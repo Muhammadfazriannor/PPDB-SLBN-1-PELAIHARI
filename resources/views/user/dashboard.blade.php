@@ -136,7 +136,6 @@
         .principal-greeting img {
             width: 250px;
             border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             animation: slideInLeft 1s ease-out;
         }
 
@@ -264,7 +263,7 @@
     </section>
 
     <section class="principal-greeting">
-        <img src="images/KEPSEK.png" alt="Kepala Sekolah">
+        <img src="images/Kepsek.png" alt="Kepala Sekolah">
         <div class="principal-text">
             <h2>Sambutan Kepala Sekolah</h2>
             <p>Assalamu'alaikum warahmatullohi wabarakatuh. Salam Sejahtera bagi kita semua, Salom, Om Swastiastu, Namo Buddhaya, Salam Kebajikan...</p>
