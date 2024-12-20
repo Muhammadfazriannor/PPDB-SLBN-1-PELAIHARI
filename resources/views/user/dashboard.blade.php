@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLBN 1 Pelaihari</title>
     <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            scroll-behavior: smooth;
-        }
+         body {
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+        background: url('images/ima.jpg') no-repeat center center / cover;
+        color: #333;
+        scroll-behavior: smooth;
+    }
 
-        header {
-            background: url('images/background.jpg') no-repeat center center / cover;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            transition: all 0.3s ease;
-        }
+    header {
+        background: url('images/background.jpg') no-repeat center center / cover;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        transition: all 0.3s ease;
+    }
 
         header.scrolled {
             background-color: rgba(30, 58, 95, 0.95);
@@ -81,7 +81,11 @@
             background: url('images/hero-bg.jpg') no-repeat center center / cover;
             padding: 50px;
             height: 90vh;
-            color: white;
+            color: rgb(82, 82, 82);
+        }
+
+        .hero-content {
+            max-width: 50%;
         }
 
         .hero-content h1 {
@@ -108,6 +112,12 @@
 
         .hero-content button:hover {
             background-color: #14304b;
+        }
+
+        .hero-image {
+            max-width: 40%; /* Limit image width */
+            height: auto;
+            border-radius: 10px;
         }
 
         .principal-greeting {
@@ -144,6 +154,42 @@
             font-size: 1.2em;
             color: #555;
             line-height: 1.8;
+        }
+
+        /* News Section */
+        .school-news {
+            padding: 50px;
+            background-color: #fff;
+            margin: 50px auto;
+        }
+
+        .school-news h2 {
+            font-size: 2.5em;
+            color: #1e3a5f;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .news-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .news-item {
+            flex: 1;
+            max-width: 30%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .news-item img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
         }
 
         footer {
@@ -201,39 +247,47 @@
             <a href="#">Beranda</a>
             <a href="#">Tentang Kami</a>
             <a href="PPDB">PPDB</a>
-            <a href="#">BKK</a>
-            <a href="#">Alumni</a>
             <a href="#">Hubungi Kami</a>
         </nav>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>The Innovative School</h1>
-    <button onclick="location.href='{{ route('ppdb.index') }}'" 
-        class="btn btn-primary btn-lg" 
-        style="padding: 10px 20px; border-radius: 5px; font-weight: bold;">
-        DAFTAR SEKARANG
-    </button>
-
+            <h1>Sekolah Inovatif Spesial</h1>
+            <p>Selamat datang di SLBN 1 Pelaihari. Kami berkomitmen untuk memberikan pendidikan inovatif bagi semua siswa, memupuk kreativitas dan pembelajaran dalam lingkungan yang ramah.</p>
+            <button onclick="location.href='{{ route('ppdb.index') }}'" class="btn btn-primary btn-lg" style="padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+                DAFTAR SEKARANG
+            </button>
         </div>
+        <img src="images/disabilitas.png" alt="Innovative School" class="hero-image">
     </section>
 
     <section class="principal-greeting">
         <img src="images/KEPSEK.png" alt="Kepala Sekolah">
         <div class="principal-text">
             <h2>Sambutan Kepala Sekolah</h2>
-            <p>Assalamu'alaikum warahmatullohi wabarakatuh. Salam Sejahtera bagi kita semua, Salom, Om Swastiastu, Namo Buddhaya, Salam Kebajikan. 
+            <p>Assalamu'alaikum warahmatullohi wabarakatuh. Salam Sejahtera bagi kita semua, Salom, Om Swastiastu, Namo Buddhaya, Salam Kebajikan...</p>
+        </div>
+    </section>
 
-Puji syukur kepada Allah SWT, Tuhan Yang Maha Esa yang telah memberikan rahmat dan anugerahNya sehingga website SLBN 1 Pelaihari dapat diselesaikan dan terbit. Salah satu tujuan dari website ini adalah untuk menjawab akan kebutuhan informasi dengan memanfaatkan sarana teknologi informasi yang ada. Kami sadar sepenuhnya dalam rangka memajukan pendidikan di era globalisasi Teknologi Informasi yang begitu pesat, sangat diperlukan sarana prasarana yang kondusif, kebutuhan informasi siswa, guru, orangtua maupun masyarakat, sehingga kami berusaha mewujudkan hal tersebut semaksimal mungkin. Semoga dengan adanya website ini dapat membantu dan bermanfaat, terutama informasi yang berhubungan dengan pendidikan, ilmu pengetahuan dan informasi seputar SLBN 1 Pelaihari. 
-
-SLBN 1 Pelaihari hadir sebagai sekolah Pusat Keunggulan yang akan selalu memberikan berbagai informasi tentang sekolah, PPDB, prestasi dan karya siswa, guru, perpustakaan, kurikulum dan lain-lain. Sehingga, orang tua siswa dan masyarakat dapat memperoleh informasi serta akses secara terbuka cepat dan akurat.
-
-Akhirnya kami mengharapkan masukan dari berbagai pihak untuk website ini agar kami terus belajar dan meng-update diri, sehingga tampilan, isi dan mutu website akan terus berkembang dan lebih baik nantinya. Terima kasih atas kerjasamanya, maju terus untuk mencapai SLBN 1 Pelaihari yang INOVATIF. Demikian dan terima kasih.
-
-Wassalamu'alaikum wr.wb.
-
-Kepala Sekolah</p>
+    <section class="school-news">
+        <h2>Berita Terbaru</h2>
+        <div class="news-container">
+            <div class="news-item">
+                <img src="images/ppdb.jpg" alt="PPDB 2024">
+                <h3>Pendaftaran PPDB Tahun 2024 Dibuka</h3>
+                <p>SLBN 1 Pelaihari dengan bangga mengumumkan bahwa pendaftaran PPDB untuk tahun ajaran 2024 sudah dibuka...</p>
+            </div>
+            <div class="news-item">
+                <img src="images/lomba-olahraga.jpg" alt="Prestasi Lomba Olahraga">
+                <h3>Prestasi Siswa di Lomba Olahraga</h3>
+                <p>Selamat kepada siswa-siswi SLBN 1 Pelaihari yang berhasil meraih medali di lomba olahraga tingkat provinsi...</p>
+            </div>
+            <div class="news-item">
+                <img src="images/perpustakaan.jpg" alt="Perpustakaan Baru">
+                <h3>Perpustakaan Sekolah Baru Saja Dibuka</h3>
+                <p>Perpustakaan terbaru kami kini siap digunakan oleh siswa. Dengan koleksi buku yang lebih banyak...</p>
+            </div>
         </div>
     </section>
 
