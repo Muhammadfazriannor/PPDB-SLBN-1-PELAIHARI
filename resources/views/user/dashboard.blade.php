@@ -260,7 +260,7 @@
                 DAFTAR SEKARANG
             </button>
         </div>
-        <img src="images/disabilitas.png" alt="Innovative School" class="hero-image">
+        <img src="images/adek.png" alt="Innovative School" class="hero-image">
     </section>
 
     <section class="principal-greeting">

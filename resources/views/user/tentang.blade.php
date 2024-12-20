@@ -125,8 +125,6 @@
             <a href="user">Beranda</a>
             <a href="tentang">Tentang Kami</a>
             <a href="PPDB">PPDB</a>
-            <a href="#">BKK</a>
-            <a href="#">Alumni</a>
             <a href="#">Hubungi Kami</a>
         </nav>
     </header>
@@ -135,9 +133,9 @@
         <div class="container">
             <h2>Tentang SLBN 1 Pelaihari</h2>
             <p>SLBN 1 Pelaihari adalah sekolah luar biasa negeri yang terletak di Pelaihari, Kabupaten Tanah Laut, Kalimantan Selatan. Sekolah ini berkomitmen untuk memberikan pendidikan berkualitas kepada siswa berkebutuhan khusus, baik dari segi akademik maupun non-akademik, untuk mengembangkan potensi mereka secara maksimal.</p>
-            
+
             <p>Sejak berdirinya, SLBN 1 Pelaihari terus berkembang dalam hal fasilitas, kurikulum, dan pelayanan kepada siswa serta orang tua. Kami memiliki visi untuk menjadi pusat pendidikan inklusif yang memberikan kesempatan yang setara kepada semua siswa untuk mengembangkan kemampuan mereka tanpa batasan.</p>
-            
+
             <h3>Visi dan Misi</h3>
             <p><strong>Visi:</strong> Menjadi sekolah yang unggul dalam pendidikan bagi siswa berkebutuhan khusus dengan pendekatan yang humanis dan berbasis teknologi.</p>
             <p><strong>Misi:</strong></p>
@@ -147,7 +145,7 @@
                 <li>Menumbuhkan kesadaran di kalangan masyarakat tentang pentingnya pendidikan inklusif.</li>
                 <li>Memberdayakan siswa untuk mengembangkan keterampilan hidup dan sosial yang baik.</li>
             </ul>
-            
+
             <h3>Pencapaian</h3>
             <p>Selama bertahun-tahun, SLBN 1 Pelaihari telah mencapai banyak hal, di antaranya:</p>
             <ul>
@@ -156,7 +154,7 @@
                 <li>Melakukan kerjasama dengan berbagai lembaga pendidikan untuk meningkatkan kualitas pengajaran.</li>
                 <li>Menjadi pusat pelatihan bagi tenaga pendidik dalam menangani siswa berkebutuhan khusus.</li>
             </ul>
-            
+
             <h3>Fasilitas Kami</h3>
             <p>SLBN 1 Pelaihari memiliki fasilitas lengkap untuk mendukung pendidikan siswa berkebutuhan khusus, termasuk:</p>
             <ul>
@@ -165,7 +163,7 @@
                 <li>Ruang konseling dan dukungan psikologis bagi siswa dan orang tua.</li>
                 <li>Laboratorium komputer untuk mengajarkan keterampilan digital kepada siswa.</li>
             </ul>
-            
+
             <p>Dengan semangat untuk memberikan yang terbaik bagi siswa-siswa kami, SLBN 1 Pelaihari terus berupaya menciptakan lingkungan yang mendukung perkembangan setiap anak.</p>
         </div>
     </section>
