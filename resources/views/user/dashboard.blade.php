@@ -122,36 +122,16 @@
         }
 
         .principal-greeting {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 50px;
-    background-color: #fff;
-    border-radius: 10px;
-    margin: 50px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;  /* Mengatur lebar maksimum agar tampilan lebih rapi */
-    width: 100%;  /* Menyesuaikan dengan lebar layar */
-}
-
-.principal-greeting .image-container {
-    flex: 1;  /* Foto akan mengambil setengah lebar layar */
-    max-width: 50%; /* Mengatur lebar maksimum 50% */
-    overflow: hidden; /* Jika gambar lebih besar dari kontainer, akan dipotong */
-}
-
-.principal-greeting .image-container img {
-    width: 100%;  /* Gambar mengisi kontainer */
-    height: auto;  /* Menjaga proporsi gambar */
-    object-fit: cover; /* Gambar mengisi area tanpa merusak rasio */
-}
-
-.principal-greeting .text-container {
-    flex: 1;  /* Bagian teks mengambil setengah lebar layar */
-    max-width: 50%;
-}
-
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 50px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
         .principal-greeting img {
             width: 250px;
@@ -175,43 +155,6 @@
             color: #555;
             line-height: 1.8;
         }
-
-        .video-profile {
-    padding: 50px;
-    background-color: #f9f9f9;
-    text-align: center;
-    border-top: 5px solid #1e3a5f;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 50px auto;
-    border-radius: 10px;
-    max-width: 900px;
-}
-
-.video-profile h2 {
-    font-size: 2em;
-    color: #1e3a5f;
-    margin-bottom: 20px;
-    font-family: 'Arial', sans-serif;
-}
-
-.video-profile p {
-    color: #555;
-    font-size: 1.2em;
-    line-height: 1.8;
-    max-width: 800px;
-    margin: 20px auto;
-    font-family: 'Arial', sans-serif;
-}
-
-.video-container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.video-container iframe {
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
         /* News Section */
         .school-news {
@@ -336,15 +279,6 @@
             <p>Assalamu'alaikum warahmatullohi wabarakatuh. Salam Sejahtera bagi kita semua, Salom, Om Swastiastu, Namo Buddhaya, Salam Kebajikan...</p>
         </div>
     </section>
-
-    <section class="video-profile">
-    <h2>Video Profile</h2>
-    <p>Video profil sekolah memperkenalkan kepada kalian hal-hal berkaitan dengan lingkungan sekolah, fasilitas umum sekolah, fasilitas pembelajaran, ruang belajar, kegiatan siswa, dan masih banyak lagi. Biar kalian tidak penasaran apa saja yang ada di dalam SLBN 1 Pelaihari, segera tonton video profilnya.</p>
-    <div class="video-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/f1AqrYIOvx0?si=ysuuCFr8xqt3J1IN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-</section>
-
 
     <section class="school-news">
         <h2>Berita Terbaru</h2>
