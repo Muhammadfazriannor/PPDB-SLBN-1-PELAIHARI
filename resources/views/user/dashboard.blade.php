@@ -154,6 +154,49 @@
             line-height: 1.8;
         }
 
+        .video-profile {
+            padding: 50px;
+            background-color: #f9f9f9;
+            text-align: center;
+            border-top: 5px solid #1e3a5f;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+            border-radius: 10px;
+            max-width: 900px;
+        }
+
+        .video-profile h2 {
+            font-size: 2em;
+            color: #1e3a5f;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .video-profile p {
+            color: #555;
+            font-size: 1.2em;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 20px auto;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .video-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .video-container iframe {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+        }
+
+
         /* News Section */
         .school-news {
             padding: 50px;
@@ -270,12 +313,12 @@
     </section>
 
     <section class="video-profile">
-    <h2>Video Profile</h2>
-    <p>Video profil sekolah memperkenalkan kepada kalian hal-hal berkaitan dengan lingkungan sekolah, fasilitas umum sekolah, fasilitas pembelajaran, ruang belajar, kegiatan siswa, dan masih banyak lagi. Biar kalian tidak penasaran apa saja yang ada di dalam SLBN 1 Pelaihari, segera tonton video profilnya.</p>
-    <div class="video-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/f1AqrYIOvx0?si=ysuuCFr8xqt3J1IN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-</section>
+        <h2>Video Profile</h2>
+        <p>Video profil sekolah memperkenalkan kepada kalian hal-hal berkaitan dengan lingkungan sekolah, fasilitas umum sekolah, fasilitas pembelajaran, ruang belajar, kegiatan siswa, dan masih banyak lagi. Biar kalian tidak penasaran apa saja yang ada di dalam SLBN 1 Pelaihari, segera tonton video profilnya.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/f1AqrYIOvx0?si=ysuuCFr8xqt3J1IN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </section>
 
 
     <section class="school-news">
