@@ -122,16 +122,36 @@
         }
 
         .principal-greeting {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            padding: 50px;
-            background-color: #fff;
-            border-radius: 10px;
-            margin: 50px auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 50px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;  /* Mengatur lebar maksimum agar tampilan lebih rapi */
+    width: 100%;  /* Menyesuaikan dengan lebar layar */
+}
+
+.principal-greeting .image-container {
+    flex: 1;  /* Foto akan mengambil setengah lebar layar */
+    max-width: 50%; /* Mengatur lebar maksimum 50% */
+    overflow: hidden; /* Jika gambar lebih besar dari kontainer, akan dipotong */
+}
+
+.principal-greeting .image-container img {
+    width: 100%;  /* Gambar mengisi kontainer */
+    height: auto;  /* Menjaga proporsi gambar */
+    object-fit: cover; /* Gambar mengisi area tanpa merusak rasio */
+}
+
+.principal-greeting .text-container {
+    flex: 1;  /* Bagian teks mengambil setengah lebar layar */
+    max-width: 50%;
+}
+
 
         .principal-greeting img {
             width: 250px;
