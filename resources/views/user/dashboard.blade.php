@@ -209,21 +209,31 @@
 
         .news-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start; /* Menyusun item ke kiri */
             gap: 20px;
             flex-wrap: wrap;
+            max-width: 1400px;
+            /* height:400px; */
         }
 
-        .news-item {
-            flex: 1;
-            max-width: 30%;
+        .news-container .news-item {
+            flex-basis: calc(25% - 20px); /* Setiap item akan memiliki lebar 25% dari kontainer */
             box-sizing: border-box;
             text-align: center;
+            height: 250px;
         }
+
+
+        /* .news-item {
+            flex: 1;
+            width: 1000px;
+            box-sizing: border-box;
+            text-align: center;
+        } */
 
         .news-item img {
             width: 100%;
-            max-width: 200px;
+            max-width: 300px;
             height: auto;
             border-radius: 8px;
             margin-bottom: 15px;
@@ -319,12 +329,14 @@
     <section class="school-news">
         <h2>Berita Terbaru</h2>
         <div class="news-container">
+            @foreach($pengumuman as $berita)
             <div class="news-item">
-                <img src="images/ppdb.jpg" alt="PPDB 2024">
-                <h3>Pendaftaran PPDB Tahun 2024 Dibuka</h3>
-                <p>SLBN 1 Pelaihari dengan bangga mengumumkan bahwa pendaftaran PPDB untuk tahun ajaran 2024 sudah dibuka...</p>
+                <img src="{{ asset('/storage/pengumumen/'.$berita->foto) }}" alt="{{$berita->judul}}">
+                <h3>{{$berita->judul}}</h3>
+                <p>{{$berita->isi}}</p>
             </div>
-            <div class="news-item">
+            @endforeach
+            <!-- <div class="news-item">
                 <img src="images/lomba-olahraga.jpg" alt="Prestasi Lomba Olahraga">
                 <h3>Prestasi Siswa di Lomba Olahraga</h3>
                 <p>Selamat kepada siswa-siswi SLBN 1 Pelaihari yang berhasil meraih medali di lomba olahraga tingkat provinsi...</p>
@@ -333,7 +345,7 @@
                 <img src="images/perpustakaan.jpg" alt="Perpustakaan Baru">
                 <h3>Perpustakaan Sekolah Baru Saja Dibuka</h3>
                 <p>Perpustakaan terbaru kami kini siap digunakan oleh siswa. Dengan koleksi buku yang lebih banyak...</p>
-            </div>
+            </div> -->
         </div>
     </section>
 

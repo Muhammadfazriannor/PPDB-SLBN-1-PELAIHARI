@@ -206,4 +206,15 @@ class PengumumanController extends Controller
             Artisan::call('storage:link');
         }
     }
+
+    public function berita(): View
+    {
+        // Ambil pengumuman terbaru dan paginasi
+        $pengumuman = Pengumuman::get();
+
+        // Hitung jumlah pengumuman
+
+        // Render view dengan data pengumuman dan jumlah pengumuman
+        return view('user.dashboard', compact('pengumuman'));
+    }
 }

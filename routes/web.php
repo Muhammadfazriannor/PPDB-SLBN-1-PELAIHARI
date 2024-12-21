@@ -23,7 +23,7 @@ Route::get('/admin', [AdminController::class, 'index'])->name('dashboard.dashboa
 
 
 // Rute untuk Dashboard User
-Route::get('/user', [UserController::class, 'index'])->name('user.dashboard');
+Route::get('/user', [PengumumanController::class, 'berita'])->name('user.dashboard');
 
 // Rute untuk Layanan
 Route::get('/tentang', [UserController::class, 'tentang'])->name('user.tentang');
