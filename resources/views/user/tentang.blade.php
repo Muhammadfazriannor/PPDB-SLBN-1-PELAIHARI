@@ -78,6 +78,8 @@
             padding: 50px 20px;
             background-color: #fff;
             color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .about-us h2 {
