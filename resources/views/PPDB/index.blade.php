@@ -8,13 +8,13 @@
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
+            background-color: white;
+            color: black;
             scroll-behavior: smooth;
         }
 
         header {
-            background: url('images/background.jpg') no-repeat center center / cover;
+            background-color: #1e3a5f;
             color: white;
             display: flex;
             justify-content: space-between;
@@ -27,14 +27,12 @@
         }
 
         header.scrolled {
-            background-color: rgba(30, 58, 95, 0.95);
-            color: #fff;
+            background-color: #142f4e;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            justify-content: center;
         }
 
         .logo img {
@@ -45,110 +43,105 @@
         .logo span {
             font-size: 2em;
             font-weight: 300;
-            color: #1e3a5f;
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            transition: color 0.3s;
-        }
-
-        header.scrolled .logo span {
             color: white;
         }
 
         nav {
             display: flex;
             gap: 20px;
-            justify-content: center;
         }
 
         nav a {
             text-decoration: none;
-            color: #1e3a5f;
+            color: white;
             font-size: 1em;
             font-weight: 300;
-            font-family: 'Arial', sans-serif;
             transition: color 0.3s;
         }
 
-        header.scrolled nav a {
-            color: white;
+        nav a:hover {
+            color: #b0c4de;
         }
 
         .container {
             max-width: 800px;
             margin: 50px auto;
-            background: #1e3a5f;
+            background: white;
+            color: black;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-            color: #f4f4f4;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
         }
 
         .form-group label {
             font-weight: bold;
             margin-bottom: 5px;
             display: block;
-            color: #ddd;
         }
 
         .form-control {
-            background-color: #1a1a2e;
-            color: #f4f4f4 !important;
-            border: 1px solid #555;
+            background-color: #f0f0f0;
+            color: black;
+            border: 1px solid #ccc;
             padding: 10px;
             border-radius: 5px;
             width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         .form-control:focus {
-            background-color: #1a1a2e;
-            border-color: #0093e9;
-            box-shadow: 0 0 5px rgba(0, 147, 233, 0.8);
+            background-color: #ffffff;
+            border-color: #b0c4de;
+            box-shadow: 0 0 5px rgba(176, 196, 222, 0.8);
         }
 
         textarea.form-control {
-            color: #f4f4f4 !important;
-            background-color: #1a1a2e;
-            border: 1px solid #555;
-        }
-
-        textarea.form-control:focus {
-            color: #f4f4f4 !important;
-            background-color: #1a1a2e;
-            border-color: #0093e9;
-            box-shadow: 0 0 5px rgba(0, 147, 233, 0.8);
+            resize: none;
         }
 
         .btn {
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            transition: background 0.3s, transform 0.3s;
-            width: 100%;
+            transition: all 0.3s;
+            font-size: 1em;
+            cursor: pointer;
+            color: white;
         }
 
         .btn-primary {
-            background: linear-gradient(to right, #0093e9, #80d0c7);
-            color: white;
+            background-color: #1e3a5f;
         }
 
         .btn-primary:hover {
+            background-color: #244b7a;
             transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 147, 233, 0.7);
+            box-shadow: 0 5px 15px rgba(30, 58, 95, 0.7);
         }
 
         .btn-warning {
-            background: linear-gradient(to right, #ffc107, #ff8800);
-            color: white;
+            background-color: #142f4e;
         }
 
         .btn-warning:hover {
+            background-color: #1c4369;
             transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.7);
+            box-shadow: 0 5px 15px rgba(20, 47, 78, 0.7);
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
         }
 
         footer {
-            background-color: #333;
+            background-color: #142f4e;
             color: white;
             text-align: center;
             padding: 20px;
@@ -177,17 +170,17 @@
     <div class="container">
         <form action="{{ route('ppdb.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="form-group mb-3">
+            <div class="form-group">
                 <label for="nama_lengkap">Nama lengkap:</label>
                 <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" required>
             </div>
 
-            <div class="form-group mb-3">
+            <div class="form-group">
                 <label for="tanggal_lahir">Tanggal lahir:</label>
                 <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" required>
             </div>
 
-            <div class="form-group mb-3">
+            <div class="form-group">
                 <label for="jenis_kelamin">Jenis kelamin:</label>
                 <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
                     <option value="Laki-laki">Laki-laki</option>
@@ -195,22 +188,22 @@
                 </select>
             </div>
 
-            <div class="form-group mb-3">
+            <div class="form-group">
                 <label for="alamat">Alamat:</label>
                 <textarea class="form-control" id="alamat" name="alamat" rows="3" required></textarea>
             </div>
 
-            <div class="form-group mb-3">
+            <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" class="form-control" id="email" name="email" required>
             </div>
 
-            <div class="form-group mb-3">
+            <div class="form-group">
                 <label for="no_hp">Nomor HP:</label>
                 <input type="text" class="form-control" id="no_hp" name="no_hp" required>
             </div>
 
-            <div class="form-group mb-3">
+            <div class="form-group">
                 <label>Tambahkan foto berkas ABK:</label>
                 <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto">
                 @error('foto')
@@ -218,9 +211,9 @@
                 @enderror
             </div>
 
-            <div class="d-flex justify-content-center mt-4">
+            <div class="btn-container">
                 <button type="submit" class="btn btn-primary">Daftar</button>
-                <button type="reset" class="btn btn-warning ms-2">Reset</button>
+                <button type="reset" class="btn btn-warning">Reset</button>
             </div>
         </form>
 
