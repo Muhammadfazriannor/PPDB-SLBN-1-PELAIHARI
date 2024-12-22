@@ -1,31 +1,30 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLBN 1 Pelaihari</title>
     <style>
-         body {
-        margin: 0;
-        font-family: 'Arial', sans-serif;
-        background: url('images/ima.jpg') no-repeat center center / cover;
-        color: #333;
-        scroll-behavior: smooth;
-    }
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('images/d.png') no-repeat center center / cover;
+            color: #333;
+            scroll-behavior: smooth;
+        }
 
-    header {
-        background: url('images/background.jpg') no-repeat center center / cover;
-        color: white;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 50px;
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        transition: all 0.3s ease;
-    }
+        header {
+            background: url('images/background.jpg') no-repeat center center / cover;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
 
         header.scrolled {
             background-color: rgba(30, 58, 95, 0.95);
@@ -132,7 +131,6 @@
             margin: 50px auto;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
         .principal-greeting img {
             width: 250px;
             border-radius: 50%;
@@ -156,6 +154,49 @@
             line-height: 1.8;
         }
 
+        .video-profile {
+            padding: 50px;
+            background-color: #f9f9f9;
+            text-align: center;
+            border-top: 5px solid #1e3a5f;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+            border-radius: 10px;
+            max-width: 900px;
+        }
+
+        .video-profile h2 {
+            font-size: 2em;
+            color: #1e3a5f;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .video-profile p {
+            color: #555;
+            font-size: 1.2em;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 20px auto;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .video-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .video-container iframe {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+        }
+
+
         /* News Section */
         .school-news {
             padding: 50px;
@@ -172,24 +213,58 @@
 
         .news-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             gap: 20px;
             flex-wrap: wrap;
+            max-width: 1400px;
         }
 
-        .news-item {
-            flex: 1;
-            max-width: 30%;
+        .news-container .news-item {
+            flex-basis: calc(33.33% - 20px);
             box-sizing: border-box;
             text-align: center;
+            height: auto;
+            margin-bottom: 20px;
         }
 
         .news-item img {
             width: 100%;
-            max-width: 200px;
+            max-width: 100%;
             height: auto;
             border-radius: 8px;
             margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .news-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .news-item h3 {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #1e3a5f;
+        }
+
+        .news-item .news-excerpt {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .view-more-btn {
+            background-color: #1e3a5f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .view-more-btn:hover {
+            background-color: #14304b;
         }
 
         footer {
@@ -266,28 +341,32 @@
         <img src="images/Kepsek.png" alt="Kepala Sekolah">
         <div class="principal-text">
             <h2>Sambutan Kepala Sekolah</h2>
-            <p>Assalamu'alaikum warahmatullohi wabarakatuh. Salam Sejahtera bagi kita semua, Salom, Om Swastiastu, Namo Buddhaya, Salam Kebajikan...</p>
+            <p>Assalamu'alaikum warahmatullohi wabarakatuh. Salam Sejahtera bagi kita semua, Salom, Om Swastiastu, Namo Buddhaya, Salam Kebajikan...
+            Puji syukur kepada Allah SWT, Tuhan Yang Maha Esa yang telah memberikan rahmat dan anugerahNya sehingga website SMK Telkom Banjarbaru dapat diselesaikan dan terbit. Salah satu tujuan dari website ini adalah untuk menjawab akan kebutuhan informasi dengan memanfaatkan sarana teknologi informasi yang ada. Kami sadar sepenuhnya dalam rangka memajukan pendidikan di era globalisasi Teknologi Informasi yang begitu pesat, sangat diperlukan sarana prasarana yang kondusif, kebutuhan informasi siswa, guru, orangtua maupun masyarakat, sehingga kami berusaha mewujudkan hal tersebut semaksimal mungkin. Semoga dengan adanya website ini dapat membantu dan bermanfaat, terutama informasi yang berhubungan dengan pendidikan, ilmu pengetahuan dan informasi seputar SMK Telkom Banjarbaru.
+            </p>
         </div>
     </section>
+
+    <section class="video-profile">
+        <h2>Video Profile</h2>
+        <p>Video profil sekolah memperkenalkan kepada kalian hal-hal berkaitan dengan lingkungan sekolah, fasilitas umum sekolah, fasilitas pembelajaran, ruang belajar, kegiatan siswa, dan masih banyak lagi. Biar kalian tidak penasaran apa saja yang ada di dalam SLBN 1 Pelaihari, segera tonton video profilnya.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/f1AqrYIOvx0?si=ysuuCFr8xqt3J1IN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </section>
+
 
     <section class="school-news">
         <h2>Berita Terbaru</h2>
         <div class="news-container">
+            @foreach($pengumuman as $berita)
             <div class="news-item">
-                <img src="images/ppdb.jpg" alt="PPDB 2024">
-                <h3>Pendaftaran PPDB Tahun 2024 Dibuka</h3>
-                <p>SLBN 1 Pelaihari dengan bangga mengumumkan bahwa pendaftaran PPDB untuk tahun ajaran 2024 sudah dibuka...</p>
+                <img src="{{ asset('/storage/pengumumen/'.$berita->foto) }}" alt="{{$berita->judul}}">
+                <h3>{{$berita->judul}}</h3>
+                <p class="news-excerpt">{{$berita->isi}}</p>
+                <button class="view-more-btn" onclick="viewMore('{{ $berita->judul }}', '{{ $berita->isi }}')">Lihat Selengkapnya</button>
             </div>
-            <div class="news-item">
-                <img src="images/lomba-olahraga.jpg" alt="Prestasi Lomba Olahraga">
-                <h3>Prestasi Siswa di Lomba Olahraga</h3>
-                <p>Selamat kepada siswa-siswi SLBN 1 Pelaihari yang berhasil meraih medali di lomba olahraga tingkat provinsi...</p>
-            </div>
-            <div class="news-item">
-                <img src="images/perpustakaan.jpg" alt="Perpustakaan Baru">
-                <h3>Perpustakaan Sekolah Baru Saja Dibuka</h3>
-                <p>Perpustakaan terbaru kami kini siap digunakan oleh siswa. Dengan koleksi buku yang lebih banyak...</p>
-            </div>
+            @endforeach
         </div>
     </section>
 
@@ -304,6 +383,11 @@
                 header.classList.remove('scrolled');
             }
         });
+
+        function viewMore(judul, isi) {
+            // Tampilkan berita dalam format popup atau modal
+            alert("Judul: " + judul + "\n\nIsi Berita: " + isi);
+        }
     </script>
 </body>
 </html>
