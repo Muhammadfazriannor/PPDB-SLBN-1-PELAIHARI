@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PendaftarController;
@@ -17,6 +18,12 @@ Route::get('/', function () {
 Route::get('/PPDB', function () {
     return view('PPDB.index');
 });
+
+Route::get('/registrasi', [AuthController::class, 'tampilRegistrasi'])->name('registrasi');
+Route::post('/registrasi', [AuthController::class, 'submitRegistrasi'])->name('registrasi.submit');
+
+Route::get('/login', [AuthController::class, 'tampilLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'submitLogin'])->name('login.submit');
 
 // Dashboard Admin
 Route::get('/admin', [AdminController::class, 'index'])->name('dashboard.dashboard');
