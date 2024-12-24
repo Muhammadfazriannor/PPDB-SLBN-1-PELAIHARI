@@ -55,6 +55,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-user-check"></i></div>  <!-- Ikon seleksi -->
                                 Seleksi Siswa/Siswi
                             </a>
+                            <a class="nav-link" href='kirimpesan'>
+                                <div class="sb-nav-link-icon"><i class="fas fa-comment-alt"></i></div>  <!-- Ikon kirim pesan -->
+                                Kirim Pesan
+                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
