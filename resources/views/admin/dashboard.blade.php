@@ -25,11 +25,7 @@
                         <li><a class="dropdown-item" href="#">Settings</a></li>
                         <li><a class="dropdown-item" href="#">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-<<<<<<< HEAD
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
-=======
                         <li><a class="dropdown-item" href="login">Logout</a></li>
->>>>>>> 2a150449295a425c542beddbebe1ffa5f9cc25e5
                     </ul>
                 </li>
             </ul>
