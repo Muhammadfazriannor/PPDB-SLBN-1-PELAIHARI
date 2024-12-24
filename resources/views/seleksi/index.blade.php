@@ -139,6 +139,7 @@
                                                             <a href="{{ route('seleksi.updateStatus', ['seleksi' => $seleksi->id, 'status' => 'diterima']) }}" class="btn btn-primary btn-sm">Diterima</a>
                                                             <a href="{{ route('seleksi.updateStatus', ['seleksi' => $seleksi->id, 'status' => 'tidak diterima']) }}" class="btn btn-danger btn-sm">Tidak Diterima</a>
                                                             <a href="{{ route('seleksi.updateStatus', ['seleksi' => $seleksi->id, 'status' => 'lihat']) }}" class="btn btn-warning btn-sm">DiLihat</a>
+                                                            <a href="kirimpesan" class="btn btn-success btn-sm">Kirim Pesan</a>
                                                         </td>
                                                     </tr>
                                                 @endforeach
