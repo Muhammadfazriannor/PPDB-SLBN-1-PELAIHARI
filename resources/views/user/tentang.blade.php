@@ -128,7 +128,7 @@
             <a href="tentang">Tentang Kami</a>
             <a href="PPDB">PPDB</a>
             <a href="#">Hubungi Kami</a>
-            <li><a class="dropdown-item" href="login">Logout</a></li>
+            <a href="login">Logout</a>
         </nav>
     </header>
 
