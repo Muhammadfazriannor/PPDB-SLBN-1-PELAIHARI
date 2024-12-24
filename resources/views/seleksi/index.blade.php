@@ -128,17 +128,17 @@
                                                         </td>
                                                         <td>
                                                             @if ($seleksi->status == 'diterima')
-                                                                <span class="badge bg-success">Diterima</span>
+                                                                <span class="badge bg-primary">Diterima</span>
                                                             @elseif ($seleksi->status == 'tidak diterima')
                                                                 <span class="badge bg-danger">Tidak Diterima</span>
                                                             @else
                                                                 <span class="badge bg-warning">Lihat</span>
-                                                            @endif
+                                                            @endif  
                                                         </td>
                                                         <td>
-                                                            <a href="{{ route('seleksi.updateStatus', ['seleksi' => $seleksi->id, 'status' => 'diterima']) }}" class="btn btn-success btn-sm">Diterima</a>
+                                                            <a href="{{ route('seleksi.updateStatus', ['seleksi' => $seleksi->id, 'status' => 'diterima']) }}" class="btn btn-primary btn-sm">Diterima</a>
                                                             <a href="{{ route('seleksi.updateStatus', ['seleksi' => $seleksi->id, 'status' => 'tidak diterima']) }}" class="btn btn-danger btn-sm">Tidak Diterima</a>
-                                                            <a href="{{ route('seleksi.updateStatus', ['seleksi' => $seleksi->id, 'status' => 'lihat']) }}" class="btn btn-warning btn-sm">Lihat</a>
+                                                            <a href="{{ route('seleksi.updateStatus', ['seleksi' => $seleksi->id, 'status' => 'lihat']) }}" class="btn btn-warning btn-sm">DiLihat</a>
                                                         </td>
                                                     </tr>
                                                 @endforeach
