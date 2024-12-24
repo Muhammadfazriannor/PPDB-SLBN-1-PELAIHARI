@@ -12,7 +12,7 @@ use App\Http\Controllers\WhatsAppController;
 use Illuminate\Support\Facades\Http;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Auth.login');
 });
 
 Route::get('/PPDB', function () {
