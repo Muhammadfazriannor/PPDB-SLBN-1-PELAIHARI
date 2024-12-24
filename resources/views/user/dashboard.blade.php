@@ -73,6 +73,21 @@
         header.scrolled nav a {
             color: white;
         }
+        
+        nav .login-btn {
+            text-decoration: none;
+            color: white;
+            background-color: #1e3a5f;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        nav .login-btn:hover {
+            background-color: #14304b;
+        }
 
         .hero {
             display: flex;
@@ -323,6 +338,7 @@
             <a href="tentang">Tentang Kami</a>
             <a href="PPDB">PPDB</a>
             <a href="#">Hubungi Kami</a>
+            <a href="login" class="login-btn">Login</a>
         </nav>
     </header>
 

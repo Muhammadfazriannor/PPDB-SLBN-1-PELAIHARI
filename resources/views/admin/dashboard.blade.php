@@ -55,38 +55,6 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-user-check"></i></div>  <!-- Ikon seleksi -->
                                 Seleksi Siswa/Siswi
                             </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                                </nav>
-                            </div>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Authentication
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.html">Login</a>
-                                            <a class="nav-link" href="register.html">Register</a>
-                                            <a class="nav-link" href="password.html">Forgot Password</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Error
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="401.html">401 Page</a>
-                                            <a class="nav-link" href="404.html">404 Page</a>
-                                            <a class="nav-link" href="500.html">500 Page</a>
-                                        </nav>
-                                    </div>
-                                </nav>
-                            </div>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -97,55 +65,75 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                <div class="container-fluid px-4">
+                    <div class="container-fluid px-4">
                         <h1 class="mt-4">Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
                         <div class="row">
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card bg-primary text-white mb-4">
-                                <div class="card-body">
-                                    Jumlah Pengumuman
+                            <!-- Summary Cards -->
+                            <div class="col-md-3">
+                                <div class="card text-white bg-danger mb-4">
+                                    <div class="card-body">Jumlah Pendaftar: {{ $jumlahPendaftar }}</div>
                                 </div>
-                                <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <span class="small text-white">{{ $jumlahPengumuman }}</span> <!-- Menampilkan jumlah pengumuman -->
-                                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card text-white bg-success mb-4">
+                                    <div class="card-body">Jumlah Pengumuman: {{ $jumlahPengumuman }}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card text-white bg-warning mb-4">
+                                    <div class="card-body">Jumlah Guru: </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card text-white bg-primary mb-4">
+                                    <div class="card-body">Jumlah Murid:</div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
+                        <div class="row">
+                            <!-- Calendar Section -->
+                            <div class="col-lg-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">Calendar & Attendance</div>
                                     <div class="card-body">
-                                        Jumlah Pendaftar
-                                    </div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <span class="small text-white">{{ $jumlahPendaftar }}</span> <!-- Menampilkan jumlah pendaftar -->
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                        <p>Here comes the calendar component.</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Success Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            <!-- Performance Chart -->
+                            <div class="col-lg-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">School Performance</div>
+                                    <div class="card-body">
+                                        <canvas id="performanceChart"></canvas>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Danger Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+
+                        <div class="row">
+                            <!-- Top Scorer Section -->
+                            <div class="col-lg-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">Top Scorer</div>
+                                    <div class="card-body">
+                                        <p>Details about top scoring students.</p>
                                     </div>
                                 </div>
                             </div>
-                     </div>
+
+                            <!-- Fees Structure -->
+                            <div class="col-lg-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">Fees Structure</div>
+                                    <div class="card-body">
+                                        <p>Details about school fee structures.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
@@ -163,11 +151,38 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
+        <script>
+            // Example of initializing a chart
+            var ctx = document.getElementById('performanceChart').getContext('2d');
+            var performanceChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Govt. School', 'Private School', 'Average School'],
+                    datasets: [{
+                        label: 'Performance',
+                        data: [65, 59, 80],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
     </body>
 </html>
