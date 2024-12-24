@@ -16,19 +16,16 @@
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index.html">SLBN 1 Pelaihari</a>
             <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-            </form>
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -48,11 +45,11 @@
                                 Tambah Pengumuman
                             </a>
                             <a class="nav-link" href="pendaftars">
-                                <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>  <!-- Ikon pendaftaran -->
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>
                                 Tambah Pendaftaran
                             </a>
                             <a class="nav-link" href="seleksi">
-                                <div class="sb-nav-link-icon"><i class="fas fa-user-check"></i></div>  <!-- Ikon seleksi -->
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-check"></i></div>
                                 Seleksi Siswa/Siswi
                             </a>
                         </div>
@@ -81,12 +78,18 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="card text-white bg-warning mb-4">
-                                    <div class="card-body">Jumlah Guru: </div>
+                                    <div class="card-body">Jumlah Guru: 
+                                        <input type="number" id="jumlahGuru" class="form-control mt-2" placeholder="Masukkan jumlah guru">
+                                        <button class="btn btn-dark mt-2" onclick="updateJumlahGuru()">Update</button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="card text-white bg-primary mb-4">
-                                    <div class="card-body">Jumlah Murid:</div>
+                                    <div class="card-body">Jumlah Murid: 
+                                        <input type="number" id="jumlahMurid" class="form-control mt-2" placeholder="Masukkan jumlah murid">
+                                        <button class="btn btn-dark mt-2" onclick="updateJumlahMurid()">Update</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -112,28 +115,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <!-- Top Scorer Section -->
-                            <div class="col-lg-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">Top Scorer</div>
-                                    <div class="card-body">
-                                        <p>Details about top scoring students.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Fees Structure -->
-                            <div class="col-lg-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">Fees Structure</div>
-                                    <div class="card-body">
-                                        <p>Details about school fee structures.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
@@ -153,6 +134,16 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script>
+            function updateJumlahGuru() {
+                const jumlahGuru = document.getElementById('jumlahGuru').value;
+                alert(`Jumlah Guru berhasil diperbarui menjadi ${jumlahGuru}`);
+            }
+
+            function updateJumlahMurid() {
+                const jumlahMurid = document.getElementById('jumlahMurid').value;
+                alert(`Jumlah Murid berhasil diperbarui menjadi ${jumlahMurid}`);
+            }
+
             // Example of initializing a chart
             var ctx = document.getElementById('performanceChart').getContext('2d');
             var performanceChart = new Chart(ctx, {

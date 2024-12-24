@@ -282,6 +282,33 @@
             background-color: #14304b;
         }
 
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2em;
+            color: #1e3a5f;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
         footer {
             background-color: #333;
             color: white;
@@ -371,6 +398,16 @@
         </div>
     </section>
 
+    <section class="stats-container">
+        <div class="stat-item">
+            <h3>50</h3>
+            <p>Jumlah Guru</p>
+        </div>
+        <div class="stat-item">
+            <h3>400</h3>
+            <p>Jumlah Murid</p>
+        </div>
+    </section>
 
     <section class="school-news">
         <h2>Berita Terbaru</h2>
