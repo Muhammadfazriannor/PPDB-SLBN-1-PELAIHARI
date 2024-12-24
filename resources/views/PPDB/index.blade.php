@@ -164,6 +164,7 @@
             <a href="tentang">Tentang Kami</a>
             <a href="PPDB">PPDB</a>
             <a href="#">Hubungi Kami</a>
+            <a href="login">Logout</a>
         </nav>
     </header>
 
