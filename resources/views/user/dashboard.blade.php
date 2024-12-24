@@ -338,7 +338,8 @@
             <a href="tentang">Tentang Kami</a>
             <a href="PPDB">PPDB</a>
             <a href="#">Hubungi Kami</a>
-            <a href="login" class="login-btn">Login</a>
+         
+            <li><a class="dropdown-item" href="login">Logout</a></li>
         </nav>
     </header>
 
