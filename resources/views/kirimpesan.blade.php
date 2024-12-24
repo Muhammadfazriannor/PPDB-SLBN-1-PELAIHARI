@@ -1,130 +1,161 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kirim Pesan WhatsApp</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f7f7f7;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 100%;
-            max-width: 600px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #0073e6;
-        }
-        label {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 8px;
-            display: block;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            font-size: 16px;
-        }
-        textarea {
-            height: 150px;
-            resize: none;
-        }
-        button {
-            background-color: #0073e6;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-        }
-        button:hover {
-            background-color: #005bb5;
-        }
-        .alert {
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-        }
-        .alert-success {
-            background-color: #28a745;
-            color: white;
-        }
-        .alert-error {
-            background-color: #dc3545;
-            color: white;
-        }
-        .alert-validation {
-            background-color: #ffc107;
-            color: black;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Kirim Pesan WhatsApp</h1>
-
-        <!-- Tampilkan pesan sukses -->
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>SLBN 1 Pelaihari Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="{{ asset('template/css/styles.css') }}" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">SLBN 1 Pelaihari</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="login">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="admin">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+                            <a class="nav-link" href="pengumumen">
+                                <div class="sb-nav-link-icon"><i class="fas fa-newspaper"></i></div>
+                                Tambah Pengumuman
+                            </a>
+                            <a class="nav-link" href="pendaftars">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>  <!-- Ikon pendaftaran -->
+                                Tambah Pendaftaran
+                            </a>
+                            <a class="nav-link" href="seleksi">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-check"></i></div>  <!-- Ikon seleksi -->
+                                Seleksi Siswa/Siswi
+                            </a>
+                            <a class="nav-link" href='kirimpesan'>
+                                <div class="sb-nav-link-icon"><i class="fas fa-comment-alt"></i></div>  <!-- Ikon kirim pesan -->
+                                Kirim Pesan
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Admin
+                    </div>
+                </nav>
             </div>
-        @endif
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container mt-5">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card border-0 shadow-sm rounded">
+                                    <div class="card-body">
+                                    <h3 class="mb-4">Kirim Pesan WhatsApp</h3>
+                                    
+                                    @if (session('success'))
+                                        <div class="alert alert-success">
+                                            {{ session('success') }}
+                                        </div>
+                                    @endif
 
-        <!-- Tampilkan pesan error -->
-        @if (session('error'))
-            <div class="alert alert-error">
-                {{ session('error') }}
-            </div>
-        @endif
+                                    @if (session('error'))
+                                        <div class="alert alert-danger">
+                                            {{ session('error') }}
+                                        </div>
+                                    @endif
 
-        <!-- Tampilkan validasi error -->
-        @if ($errors->any())
-            <div class="alert alert-validation">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+                                    @if ($errors->any())
+                                        <div class="alert alert-warning">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
 
-        <!-- Form untuk mengirim pesan -->
-        <form action="{{ route('send-message') }}" method="POST">
-            @csrf
-            <label for="phone">Nomor WhatsApp (dengan kode negara):</label>
-            <input 
-                type="text" 
-                id="phone" 
-                name="phone" 
-                placeholder="Contoh: 628123456789" 
-                value="{{ old('phone') }}" 
-                required
-            >
+                                    <form action="{{ route('send-message') }}" method="POST">
+                                        @csrf
+                                        <div class="mb-3">
+                                            <label for="phone" class="form-label">Nomor WhatsApp (dengan kode negara):</label>
+                                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Contoh: 628123456789" value="{{ old('phone') }}" required>
+                                        </div>
 
-            <label for="message">Pesan:</label>
-            <textarea 
-                id="message" 
-                name="message" 
-                placeholder="Tulis pesan Anda..." 
-                required>{{ old('message') }}</textarea>
+                                        <div class="mb-3">
+                                            <label for="message" class="form-label">Pesan:</label>
+                                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tulis pesan Anda..." required>{{ old('message') }}</textarea>
+                                        </div>
 
-            <button type="submit">Kirim Pesan</button>
-        </form>
+                                        <button type="submit" class="btn btn-primary w-100">Kirim Pesan</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        // Message with sweetalert
+        @if(session('success'))
+            Swal.fire({
+                icon: "success",
+                title: "BERHASIL",
+                text: "{{ session('success') }}",
+                showConfirmButton: false,
+                timer: 2000
+            });
+        @elseif(session('error'))
+            Swal.fire({
+                icon: "error",
+                title: "GAGAL!",
+                text: "{{ session('error') }}",
+                showConfirmButton: false,
+                timer: 2000
+            });
+        @endif
+    </script>
 </body>
 </html>

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>SLBN 1 Pelaihari</title>
+        <title>SLBN 1 Pelaihari Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="{{ asset('template/css/styles.css') }}" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -25,7 +25,11 @@
                         <li><a class="dropdown-item" href="#">Settings</a></li>
                         <li><a class="dropdown-item" href="#">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
+<<<<<<< HEAD
                         <li><a class="dropdown-item" href="#">Logout</a></li>
+=======
+                        <li><a class="dropdown-item" href="login">Logout</a></li>
+>>>>>>> 2a150449295a425c542beddbebe1ffa5f9cc25e5
                     </ul>
                 </li>
             </ul>
@@ -51,6 +55,10 @@
                             <a class="nav-link" href="seleksi">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user-check"></i></div>
                                 Seleksi Siswa/Siswi
+                            </a>
+                            <a class="nav-link" href='kirimpesan'>
+                                <div class="sb-nav-link-icon"><i class="fas fa-comment-alt"></i></div>  <!-- Ikon kirim pesan -->
+                                Kirim Pesan
                             </a>
                         </div>
                     </div>
