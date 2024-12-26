@@ -37,6 +37,8 @@
 
             <button type="submit" class="btn btn-primary w-100 mb-3">Login</button>
 
+            <a href="{{ route('auth.google') }}" class="btn btn-danger w-100 mb-3 ">Login with Google</a>
+
             <div class="text-center">
                 <p class="text-muted">Belum punya akun? <a href="{{ route('registrasi') }}" class="text-primary">Registrasi Sekarang</a></p>
             </div>

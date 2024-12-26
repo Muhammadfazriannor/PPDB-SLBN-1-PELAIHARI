@@ -10,6 +10,7 @@ use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\SeleksiController;
 use App\Http\Controllers\WhatsAppController;
 use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\Auth\GoogleController;
 
 Route::get('/', function () {
     return view('Auth.login');
@@ -24,6 +25,9 @@ Route::post('/registrasi', [AuthController::class, 'submitRegistrasi'])->name('r
 
 Route::get('/login', [AuthController::class, 'tampilLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'submitLogin'])->name('login.submit');
+
+Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 // Dashboard Admin
 Route::get('/admin', [AdminController::class, 'index'])->name('dashboard.dashboard');
