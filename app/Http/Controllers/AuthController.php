@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth; // Untuk autentikasi pengguna
+use Illuminate\Support\Str;
+
 
 class AuthController extends Controller
 {
@@ -63,4 +66,38 @@ class AuthController extends Controller
 
         return redirect()->back()->with('error', 'Login gagal, coba lagi!');
     }
+        // Mengarahkan pengguna ke Google untuk otentikasi
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    // Menangani callback dari Google
+    public function handleGoogleCallback()
+    {
+        try {
+            $googleUser = Socialite::driver('google')->user();
+
+            // Cek apakah pengguna sudah ada di database
+            $user = User::where('email', $googleUser->getEmail())->first();
+
+            if (!$user) {
+            // Jika user belum ada, buat pengguna baru
+            $user = new User();
+            $user->name = $googleUser->getName();
+            $user->email = $googleUser->getEmail();
+            $user->password = bcrypt(Str::random(16)); // Membuat password acak
+            $user->save();
+            }
+
+            // Login pengguna
+            Auth::login($user);
+
+            // Arahkan ke halaman dashboard atau halaman yang diinginkan
+            return redirect()->route('user.dashboard');
+        } catch (\Exception $e) {
+            return redirect()->route('login')->with('error', 'Terjadi kesalahan saat login dengan Google.');
+        }
+    }
+
 }
