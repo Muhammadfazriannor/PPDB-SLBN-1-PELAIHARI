@@ -92,3 +92,9 @@ Route::prefix('seleksi')->group(function () {
     Route::get('/proses', [SeleksiController::class, 'prosesSeleksi'])->name('seleksi.proses');
     Route::get('/update-status/{seleksi}/{status}', [SeleksiController::class, 'updateStatus'])->name('seleksi.updateStatus');
 });
+
+// Route untuk mengarahkan ke Google
+Route::get('oauth/google', [AuthController::class, 'redirectToGoogle']);
+
+// Route untuk menangani callback dari Google
+Route::get('oauth/google/callback', [AuthController::class, 'handleGoogleCallback']);
