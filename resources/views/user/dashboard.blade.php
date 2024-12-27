@@ -57,36 +57,96 @@
 
         nav {
             display: flex;
+            align-items: center; /* Ensure vertical alignment */
             gap: 20px;
             justify-content: center;
         }
 
         nav a {
             text-decoration: none;
-            color: #1e3a5f;
+            color: #1e3a5f; /* Uniform color */
             font-size: 1em;
-            font-weight: 300;
+            font-weight: bold; /* Bold text */
             font-family: 'Arial', sans-serif;
             transition: color 0.3s;
         }
 
         header.scrolled nav a {
-            color: white;
+            color: white; /* White color on scroll */
         }
         
         nav .login-btn {
             text-decoration: none;
-            color: white;
+            color: white; /* Ensure uniformity */
             background-color: #1e3a5f;
             padding: 10px 20px;
             font-size: 1em;
             border-radius: 5px;
-            font-weight: bold;
+            font-weight: bold; /* Bold text */
             transition: background-color 0.3s;
         }
 
         nav .login-btn:hover {
             background-color: #14304b;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            min-width: 150px;
+            border-radius: 5px;
+            z-index: 15;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            font-size: 1em;
+            font-family: 'Arial', sans-serif;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown .dropdown-btn {
+            background: none;
+            border: none;
+            color: #1e3a5f;
+            font-size: 1em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dropdown .dropdown-btn img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .dropdown .dropdown-btn span {
+            font-weight: 500;
+        }
+
+        header.scrolled .dropdown .dropdown-btn {
+            color: white;
         }
 
         .hero {
@@ -321,6 +381,24 @@
             margin: 0;
         }
 
+        .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-profile .profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-profile span {
+            font-weight: bold; /* Bold username */
+            color: #1e3a5f; /* Same color as other nav items */
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -365,7 +443,22 @@
             <a href="tentang">Tentang Kami</a>
             <a href="PPDB">PPDB</a>
             <a href="#">Hubungi Kami</a>
-            <a href="login">Logout</a>
+            @auth
+            <div class="dropdown">
+                <div class="user-profile">
+                    <img src="{{ Auth::user()->profile_picture ?? 'images/default-profile.png' }}" alt="User Profile" class="profile-picture">
+                    <span>{{ Auth::user()->name }}</span>
+                </div>
+                <div class="dropdown-content">
+                    <a href="/profile">Profile</a>
+                    <a href="/login">Logout</a>
+                        @csrf
+                    </form>
+                </div>
+            </div>
+            @else
+            <a href="{{ route('login.google') }}" class="login-btn">Login dengan Google</a>
+            @endauth
         </nav>
     </header>
 

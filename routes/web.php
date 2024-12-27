@@ -93,6 +93,12 @@ Route::prefix('seleksi')->group(function () {
     Route::get('/update-status/{seleksi}/{status}', [SeleksiController::class, 'updateStatus'])->name('seleksi.updateStatus');
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('Auth/login', function () {
+        return view('Auth.login');
+    });
+});
+
 // Route untuk mengarahkan ke Google
 Route::get('oauth/google', [AuthController::class, 'redirectToGoogle']);
 
