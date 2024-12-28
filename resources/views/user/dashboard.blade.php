@@ -348,10 +348,10 @@
             gap: 50px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 10px;
+            background-color: #14304b;
+            border-radius: 0px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 900px;
+            max-width: 1300px;
         }
 
         .stat-item {
@@ -360,13 +360,13 @@
 
         .stat-item h3 {
             font-size: 2em;
-            color: #1e3a5f;
+            color:rgb(255, 255, 255);
             margin-bottom: 10px;
         }
 
         .stat-item p {
             font-size: 1.2em;
-            color: #555;
+            color: white;
         }
 
         footer {
@@ -457,7 +457,7 @@
                 </div>
             </div>
             @else
-            <a href="{{ route('login.google') }}" class="login-btn">Login dengan Google</a>
+            <a href="{{ route('login') }}" class="login-btn">Login dengan Google</a>
             @endauth
         </nav>
     </header>
@@ -492,14 +492,14 @@
     </section>
 
     <section class="stats-container">
-        <div class="stat-item">
-            <h3>50</h3>
-            <p>Jumlah Guru</p>
-        </div>
-        <div class="stat-item">
-            <h3>400</h3>
-            <p>Jumlah Murid</p>
-        </div>
+    <div class="stat-item">
+        <h3 id="guru-counter" data-count="50">0</h3>
+        <p>Jumlah Guru</p>
+    </div>
+    <div class="stat-item">
+        <h3 id="murid-counter" data-count="400">0</h3>
+        <p>Jumlah Murid</p>
+    </div>
     </section>
 
     <section class="school-news">
@@ -529,6 +529,37 @@
                 header.classList.remove('scrolled');
             }
         });
+
+        function animateCounter(element, start, end, duration) {
+        const range = end - start;
+        const increment = end > start ? 1 : -1;
+        const stepTime = Math.abs(Math.floor(duration / range));
+        let current = start;
+        const timer = setInterval(() => {
+            current += increment;
+            element.textContent = current;
+            if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+                clearInterval(timer);
+            }
+        }, stepTime);
+    }
+
+    // Trigger the counter animation when the section comes into view
+    const counters = document.querySelectorAll('.stat-item h3');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const count = parseInt(counter.getAttribute('data-count'), 10);
+                animateCounter(counter, 0, count, 2000);
+                observer.unobserve(counter); // Stop observing once animation is triggered
+            }
+        });
+    }, { threshold: 1.0 });
+
+    counters.forEach(counter => {
+        observer.observe(counter);
+    });
 
         function viewMore(judul, isi) {
             // Tampilkan berita dalam format popup atau modal
