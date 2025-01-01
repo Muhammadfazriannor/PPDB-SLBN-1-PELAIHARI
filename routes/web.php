@@ -39,6 +39,8 @@ Route::get('/user', [PengumumanController::class, 'berita'])->name('user.dashboa
 // Rute untuk Layanan
 Route::get('/tentang', [UserController::class, 'tentang'])->name('user.tentang');
 
+Route::get('/hubungi', [UserController::class, 'hubungi'])->name('user.hubungi');
+
 Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/pengumuman', [AdminController::class, 'pengumuman'])->name('admin.pengumuman');
