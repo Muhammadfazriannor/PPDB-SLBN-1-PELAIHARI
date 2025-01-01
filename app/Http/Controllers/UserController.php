@@ -17,4 +17,8 @@ class UserController extends Controller
     {
         return view('user.tentang');
     }
+    public function hubungi()
+    {
+        return view('user.hubungi');
+    }
 }
