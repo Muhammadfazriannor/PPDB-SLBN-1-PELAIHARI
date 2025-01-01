@@ -6,429 +6,458 @@
     <title>SLBN 1 Pelaihari</title>
     <style>
         body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: url('images/d.png') no-repeat center center / cover;
-            color: #333;
-            scroll-behavior: smooth;
-        }
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: url('images/d.png') no-repeat center center / cover;
+    color: #333;
+    scroll-behavior: smooth;
+    }
 
-        header {
-            background: url('images/background.jpg') no-repeat center center / cover;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            transition: all 0.3s ease;
-        }
+    header {
+        background: url('images/background.jpg') no-repeat center center / cover;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        transition: all 0.3s ease;
+    }
 
-        header.scrolled {
-            background-color: rgba(30, 58, 95, 0.95);
-            color: #fff;
-        }
+    header.scrolled {
+        background-color: rgba(30, 58, 95, 0.95);
+        color: #fff;
+    }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-        .logo img {
-            height: 40px;
-            margin-right: 10px;
-        }
+    .logo img {
+        height: 40px;
+        margin-right: 10px;
+    }
 
-        .logo span {
-            font-size: 2em;
-            font-weight: 300;
-            color: #1e3a5f; /* Blue color */
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            transition: color 0.3s;
-        }
+    .logo span {
+        font-size: 2em;
+        font-weight: 300;
+        color: #1e3a5f; /* Blue color */
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+        transition: color 0.3s;
+    }
 
-        header.scrolled .logo span {
-            color: white; /* White color on scroll */
-        }
+    header.scrolled .logo span {
+        color: white; /* White color on scroll */
+    }
 
-        nav {
-            display: flex;
-            align-items: center; /* Ensure vertical alignment */
-            gap: 20px;
-            justify-content: center;
-        }
+    nav {
+        display: flex;
+        align-items: center; /* Ensure vertical alignment */
+        gap: 20px;
+        justify-content: center;
+    }
 
-        nav a {
-            text-decoration: none;
-            color: #1e3a5f; /* Uniform color */
-            font-size: 1em;
-            font-weight: bold; /* Bold text */
-            font-family: 'Arial', sans-serif;
-            transition: color 0.3s;
-        }
+    nav a {
+        text-decoration: none;
+        color: #1e3a5f; /* Uniform color */
+        font-size: 1em;
+        font-weight: bold; /* Bold text */
+        font-family: 'Arial', sans-serif;
+        transition: color 0.3s;
+    }
 
-        header.scrolled nav a {
-            color: white; /* White color on scroll */
-        }
-        
-        nav .login-btn {
-            text-decoration: none;
-            color: white; /* Ensure uniformity */
-            background-color: #1e3a5f;
-            padding: 10px 20px;
-            font-size: 1em;
-            border-radius: 5px;
-            font-weight: bold; /* Bold text */
-            transition: background-color 0.3s;
-        }
+    header.scrolled nav a {
+        color: white; /* White color on scroll */
+    }
 
-        nav .login-btn:hover {
-            background-color: #14304b;
-        }
+    nav .login-btn {
+        text-decoration: none;
+        color: white; /* Ensure uniformity */
+        background-color: #1e3a5f;
+        padding: 10px 20px;
+        font-size: 1em;
+        border-radius: 5px;
+        font-weight: bold; /* Bold text */
+        transition: background-color 0.3s;
+    }
 
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
+    nav .login-btn:hover {
+        background-color: #14304b;
+    }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            right: 0;
-            background-color: #fff;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            min-width: 150px;
-            border-radius: 5px;
-            z-index: 15;
-        }
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
 
-        .dropdown-content a {
-            color: #333;
-            text-decoration: none;
-            display: block;
-            padding: 10px;
-            font-size: 1em;
-            font-family: 'Arial', sans-serif;
-            transition: background-color 0.3s;
-        }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: #fff;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        min-width: 150px;
+        border-radius: 5px;
+        z-index: 15;
+    }
 
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
+    .dropdown-content a {
+        color: #333;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+        font-size: 1em;
+        font-family: 'Arial', sans-serif;
+        transition: background-color 0.3s;
+    }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
 
-        .dropdown .dropdown-btn {
-            background: none;
-            border: none;
-            color: #1e3a5f;
-            font-size: 1em;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
 
-        .dropdown .dropdown-btn img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
+    .dropdown .dropdown-btn {
+        background: none;
+        border: none;
+        color: #1e3a5f;
+        font-size: 1em;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
 
-        .dropdown .dropdown-btn span {
-            font-weight: 500;
-        }
+    .dropdown .dropdown-btn img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
 
-        header.scrolled .dropdown .dropdown-btn {
-            color: white;
-        }
+    .dropdown .dropdown-btn span {
+        font-weight: 500;
+    }
 
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: url('images/hero-bg.jpg') no-repeat center center / cover;
-            padding: 50px;
-            height: 90vh;
-            color: rgb(82, 82, 82);
-        }
+    header.scrolled .dropdown .dropdown-btn {
+        color: white;
+    }
 
-        .hero-content {
-            max-width: 50%;
-        }
+    .user-profile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
 
-        .hero-content h1 {
-            font-size: 3em;
-            color: #1e3a5f;
-            animation: fadeIn 1.5s ease-in;
-        }
+    .user-profile .profile-picture {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
 
-        .hero-content p {
-            font-size: 1.2em;
-            margin: 20px 0;
-        }
+    .user-profile span {
+        font-weight: bold; /* Bold username */
+        color: #1e3a5f; /* Same color as other nav items */
+    }
 
-        .hero-content button {
-            background-color: #1e3a5f;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1em;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+    /* Ensure user profile name changes color on scroll */
+    header.scrolled .user-profile span {
+        color: white; /* Change username color to white when scrolled */
+    }
 
-        .hero-content button:hover {
-            background-color: #14304b;
-        }
+    .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: url('images/hero-bg.jpg') no-repeat center center / cover;
+        padding: 50px;
+        height: 90vh;
+        color: rgb(82, 82, 82);
+    }
 
-        .hero-image {
-            max-width: 40%; /* Limit image width */
-            height: auto;
-            border-radius: 10px;
-        }
+    .hero-content {
+        max-width: 50%;
+    }
 
-        .principal-greeting {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            padding: 50px;
-            background-color: #fff;
-            border-radius: 10px;
-            margin: 50px auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .principal-greeting img {
-            width: 250px;
-            border-radius: 50%;
-            animation: slideInLeft 1s ease-out;
-        }
+    .hero-content h1 {
+        font-size: 3em;
+        color: #1e3a5f;
+        animation: fadeIn 1.5s ease-in;
+    }
 
-        .principal-text {
-            max-width: 600px;
-        }
+    .hero-content p {
+        font-size: 1.2em;
+        margin: 20px 0;
+    }
 
-        .principal-text h2 {
-            font-size: 2em;
-            color: #1e3a5f;
-            margin-bottom: 20px;
-            animation: slideInRight 1s ease-out;
-        }
+    .hero-content button {
+        background-color: #1e3a5f;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        font-size: 1em;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
 
-        .principal-text p {
-            font-size: 1.2em;
-            color: #555;
-            line-height: 1.8;
-        }
+    .hero-content button:hover {
+        background-color: #14304b;
+    }
 
-        .video-profile {
-            padding: 50px;
-            background-color: #f9f9f9;
-            text-align: center;
-            border-top: 5px solid #1e3a5f;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 50px auto;
-            border-radius: 10px;
-            max-width: 900px;
-        }
+    .hero-image {
+        max-width: 40%; /* Limit image width */
+        height: auto;
+        border-radius: 10px;
+    }
 
-        .video-profile h2 {
-            font-size: 2em;
-            color: #1e3a5f;
-            margin-bottom: 20px;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .video-profile p {
-            color: #555;
-            font-size: 1.2em;
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 20px auto;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .video-container {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            position: relative;
-        }
-
-        .video-container iframe {
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 800px;
-            height: 450px;
-        }
-
-
-        /* News Section */
-        .school-news {
-            padding: 50px;
-            background-color: #fff;
-            margin: 50px auto;
-        }
-
-        .school-news h2 {
-            font-size: 2.5em;
-            color: #1e3a5f;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .news-container {
-            display: flex;
-            justify-content: flex-start;
-            gap: 20px;
-            flex-wrap: wrap;
-            max-width: 1400px;
-        }
-
-        .news-container .news-item {
-            flex-basis: calc(33.33% - 20px);
-            box-sizing: border-box;
-            text-align: center;
-            height: auto;
-            margin-bottom: 20px;
-        }
-
-        .news-item img {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            transition: transform 0.3s ease;
-        }
-
-        .news-item img:hover {
-            transform: scale(1.05);
-        }
-
-        .news-item h3 {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #1e3a5f;
-        }
-
-        .news-item .news-excerpt {
-            font-size: 1.1em;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        .view-more-btn {
-            background-color: #1e3a5f;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .view-more-btn:hover {
-            background-color: #14304b;
-        }
-
-        .stats-container {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #14304b;
-            border-radius: 0px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 1300px;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 2em;
-            color:rgb(255, 255, 255);
-            margin-bottom: 10px;
-        }
-
-        .stat-item p {
-            font-size: 1.2em;
-            color: white;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        .user-profile {
+    .principal-greeting {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 5% 10%; /* Menggunakan persentase untuk padding agar lebih fleksibel */
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 50px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.user-profile .profile-picture {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-}
+    .principal-greeting img {
+        width: 100%; /* Menyesuaikan gambar agar memenuhi lebar container */
+        max-width: 550px; /* Membatasi lebar gambar agar tidak melebihi ukuran tertentu */
+        height: auto;
+        border-radius: 80%;
+        animation: slideInLeft 1s ease-out;
+    }
 
-.user-profile span {
-            font-weight: bold; /* Bold username */
-            color: #1e3a5f; /* Same color as other nav items */
+    /* Media Query untuk perangkat dengan lebar layar lebih kecil */
+    @media (max-width: 768px) {
+        .principal-greeting {
+            flex-direction: column; /* Menumpuk elemen secara vertikal pada layar lebih kecil */
+            padding: 20px; /* Mengurangi padding pada perangkat lebih kecil */
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        .principal-greeting img {
+            width: 80%; /* Mengurangi ukuran gambar pada layar kecil */
+            max-width: none; /* Menghilangkan pembatasan max-width agar gambar lebih responsif */
+        }
+    }
+
+    /* Media Query untuk perangkat dengan lebar layar lebih kecil dari 480px (smartphone) */
+    @media (max-width: 480px) {
+        .principal-greeting {
+            padding: 15px; /* Mengurangi padding lebih lanjut pada perangkat kecil */
         }
 
-        @keyframes slideInLeft {
-            from {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+        .principal-greeting img {
+            width: 90%; /* Mengurangi ukuran gambar untuk layar yang lebih kecil */
         }
+    }
 
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+
+    .principal-text {
+        max-width: 600px;
+    }
+
+    .principal-text h2 {
+        font-size: 2em;
+        color: #1e3a5f;
+        margin-bottom: 20px;
+        animation: slideInRight 1s ease-out;
+    }
+
+    .principal-text p {
+        font-size: 1.2em;
+        color: #555;
+        line-height: 1.8;
+    }
+
+    .video-profile {
+        padding: 50px;
+        background-color: #f9f9f9;
+        text-align: center;
+        border-top: 5px solid #1e3a5f;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 50px auto;
+        border-radius: 10px;
+        max-width: 900px;
+    }
+
+    .video-profile h2 {
+        font-size: 2em;
+        color: #1e3a5f;
+        margin-bottom: 20px;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .video-profile p {
+        color: #555;
+        font-size: 1.2em;
+        line-height: 1.8;
+        max-width: 800px;
+        margin: 20px auto;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .video-container {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+
+    .video-container iframe {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 800px;
+        height: 450px;
+    }
+
+    /* News Section */
+    .school-news {
+        padding: 50px;
+        background-color: #fff;
+        margin: 50px auto;
+    }
+
+    .school-news h2 {
+        font-size: 2.5em;
+        color: #1e3a5f;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .news-container {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+        flex-wrap: wrap;
+        max-width: 1400px;
+    }
+
+    .news-container .news-item {
+        flex-basis: calc(33.33% - 20px);
+        box-sizing: border-box;
+        text-align: center;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .news-item img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+    }
+
+    .news-item img:hover {
+        transform: scale(1.05);
+    }
+
+    .news-item h3 {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #1e3a5f;
+    }
+
+    .news-item .news-excerpt {
+        font-size: 1.1em;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    .view-more-btn {
+        background-color: #1e3a5f;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background-color 0.3s;
+    }
+
+    .view-more-btn:hover {
+        background-color: #14304b;
+    }
+
+    .stats-container {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #14304b;
+        border-radius: 0px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 1300px;
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+
+    .stat-item h3 {
+        font-size: 2em;
+        color:rgb(255, 255, 255);
+        margin-bottom: 10px;
+    }
+
+    .stat-item p {
+        font-size: 1.2em;
+        color: white;
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    footer p {
+        margin: 0;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
         }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInLeft {
+        from {
+            transform: translateX(-100%);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+
 
     </style>
 </head>
@@ -442,7 +471,7 @@
             <a href="user">Beranda</a>
             <a href="tentang">Tentang Kami</a>
             <a href="PPDB">PPDB</a>
-            <a href="#">Hubungi Kami</a>
+            <a href="hubungi">Hubungi Kami</a>
             @auth
             <div class="dropdown">
                 <div class="user-profile">
