@@ -76,8 +76,8 @@
                                 Kirim Pesan
                             </a>
                             <a class="nav-link" href='peserta'>
-                                <div class="sb-nav-link-icon"><i class="fas fa-comment-alt"></i></div>  <!-- Ikon kirim pesan -->
-                                Hitung TPK
+                                <div class="sb-nav-link-icon"><i class="fas fa-calculator"></i></div>  <!-- Ikon kalkulator untuk hitung TPK -->
+                                 Hitung TPK
                             </a>
                         </div>
                     </div>
