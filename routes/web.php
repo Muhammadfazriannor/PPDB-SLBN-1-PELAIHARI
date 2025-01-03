@@ -12,6 +12,11 @@ use App\Http\Controllers\WhatsAppController;
 use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\Auth\GoogleController;
 
+use App\Http\Controllers\PesertaController;
+
+Route::resource('peserta', PesertaController::class);
+Route::get('peserta/ranking', [PesertaController::class, 'ranking'])->name('peserta.ranking');
+
 Route::get('/', function () {
     return view('Auth.login');
 });
